@@ -1,0 +1,14 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$dotSize: var(--timeline-dot-size);
+
+.TimelineDot {
+	width: $dotSize;
+	height: $dotSize;
+	min-width: $dotSize;
+	min-height: $dotSize;
+	border-radius: 50%;
+	margin: 1rem 0;
+}

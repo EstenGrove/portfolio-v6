@@ -1,0 +1,12 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.Timeline {
+	width: 100%;
+
+	&_items {
+		width: auto;
+		@include flex_col(start, start);
+	}
+}

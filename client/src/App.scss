@@ -1,0 +1,42 @@
+@import "./sass/variables";
+@import "./sass/mixins";
+@import "./sass/custom";
+
+.App {
+	width: 100vw;
+	max-width: 100%;
+	// To fix the 'sticky' navbar not sticking
+	// - Use height: auto;
+	// - MAY need to change where the background lives
+	height: 120vh;
+
+	&_main {
+		width: 100%;
+		// we need this for the footer
+		min-height: 100%;
+		padding-top: 8rem;
+		max-height: auto;
+	}
+}
+
+// DEPRECATED - REMOVE THIS LATER AFTER TESTING GRADIENT'S USAGE
+// :root[data-theme="light"] .App {
+// 	background-image: radial-gradient(
+// 		farthest-corner circle at 94% 84% in oklab,
+// 		#5f17e6 0%,
+// 		#eaecef 127% 127%
+// 	);
+// }
+// :root[data-theme="dark"] .App {
+// 	background-image: radial-gradient(
+// 		farthest-corner circle at 169% 113% in oklab,
+// 		#5f17e6 0%,
+// 		#0d1115 88% 127%
+// 	);
+// }
+
+@media only screen and (max-width: 650px) {
+	.App {
+		min-height: 100vh;
+	}
+}

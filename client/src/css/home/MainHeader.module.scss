@@ -1,0 +1,71 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$accent: var(--accent);
+
+.MainHeader {
+	@include fill_container;
+	min-height: 56vh;
+	@include flex_col(center, flex-start);
+	padding: var(--pagePadding);
+
+	&_intro {
+		font-size: calc(4vw + 4vh);
+		color: var(--header-hi);
+		& > b {
+			font-size: inherit;
+			color: $accent;
+		}
+	}
+	&_name {
+		font-size: calc(1.8vw + 1.8vh);
+		color: var(--header-name);
+		line-height: 2rem;
+
+		& b {
+			font-size: inherit;
+			color: $accent;
+		}
+	}
+	&_title {
+		font-size: calc(2.5vw + 2.5vh);
+		color: var(--header-title);
+		margin-bottom: 1rem;
+	}
+}
+
+.ResumeButton {
+	padding: 0.8rem 1.7rem;
+	border-radius: 5rem;
+	background-color: var(--accent-bg);
+	color: var(--accent);
+	font-size: 1.6rem;
+	font-weight: 700;
+	border: none;
+	outline: none;
+	&:hover {
+		cursor: pointer;
+		filter: drop-shadow(0 0 2em var(--accent));
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	.MainHeader {
+		width: 100%;
+		padding: 3%;
+
+		&_intro {
+			font-size: 6rem;
+			color: var(--header-hi);
+		}
+		&_name {
+			font-size: 2.8rem;
+			color: var(--header-name);
+		}
+		&_title {
+			font-size: calc(2.5vw + 3.5vh);
+			color: var(--header-title);
+		}
+	}
+}

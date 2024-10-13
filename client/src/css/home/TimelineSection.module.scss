@@ -1,0 +1,19 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$accent: var(--accent);
+
+$sectionPadding: var(--pagePadding)
+	calc(var(--pagePadding) + var(--page-content-padding));
+
+.TimelineSection {
+	@include fill_container;
+	padding: $sectionPadding;
+}
+
+@media only screen and (max-width: 700px) {
+	.TimelineSection {
+		padding: var(--pagePadding) 2rem;
+	}
+}

@@ -1,0 +1,16 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.TimelineConnector {
+	grid-row: 1;
+	grid-column: 1 / 2;
+	&_inner {
+		@include fill_container;
+		display: grid;
+		grid-template-rows: max-content;
+		grid-template-columns: 1 100%;
+		justify-content: center; // horizontal axis
+		align-items: start; // vertical axis
+	}
+}

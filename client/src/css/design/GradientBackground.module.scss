@@ -1,0 +1,32 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.GradientBackground {
+	width: 100vw;
+	max-width: 100%;
+	// To fix the 'sticky' navbar not sticking
+	// - Use height: auto;
+	// - MAY need to change where the background lives
+	height: 120vh;
+	max-height: 120vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+:root[data-theme="light"] .GradientBackground {
+	background-image: radial-gradient(
+		farthest-corner circle at 94% 84% in oklab,
+		#5f17e6 0%,
+		#eaecef 127% 127%
+	);
+}
+:root[data-theme="dark"] .GradientBackground {
+	background-image: radial-gradient(
+		farthest-corner circle at 169% 113% in oklab,
+		#5f17e6 0%,
+		#0d1115 88% 127%
+	);
+}

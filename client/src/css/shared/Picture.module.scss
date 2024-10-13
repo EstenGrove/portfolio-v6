@@ -1,0 +1,19 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.Picture {
+	@include fill_container;
+	border-radius: 1rem;
+	max-width: 100%;
+	max-height: 100%;
+
+	&_fallback {
+		border-radius: 1rem;
+	}
+	& img {
+		object-fit: cover;
+		max-width: 100%;
+		max-height: 100%;
+	}
+}

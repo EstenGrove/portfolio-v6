@@ -1,0 +1,13 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.Header {
+	display: block;
+	width: 100%;
+	min-width: 100%;
+	height: 100%;
+	min-height: 100%;
+	min-height: 90vh;
+	padding: var(--pagePadding);
+}

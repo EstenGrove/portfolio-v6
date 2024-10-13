@@ -1,0 +1,150 @@
+@import "./variables";
+@import "./mixins";
+@import "./animations";
+
+@mixin fill_container {
+	width: 100%;
+	height: 100%;
+}
+
+// base flex - display: flex;
+@mixin base_flex {
+	display: -webkit-box;
+	display: flex;
+}
+
+// handles flex rows
+@mixin flex_row($rowType, $colType, $wrapType: nowrap) {
+	@include base_flex;
+	flex-direction: row;
+	justify-content: $rowType;
+	align-items: $colType;
+	flex-wrap: $wrapType;
+}
+
+// handles flex columns
+@mixin flex_col($rowType, $colType, $wrapType: nowrap) {
+	@include base_flex;
+	flex-direction: column;
+	justify-content: $rowType;
+	align-items: $colType;
+	flex-wrap: $wrapType;
+}
+
+@mixin rowCenter($wrapType: nowrap) {
+	@include flex_row(center, center, $wrapType);
+}
+@mixin colCenter($wrapType: nowrap) {
+	@include flex_col(center, center, $wrapType);
+}
+
+$defaultColor: rgba(0, 0, 0, 0.49);
+@mixin focusMode($color: $defaultColor) {
+	-webkit-box-shadow: 0px 0px 300px 200px $color;
+	-moz-box-shadow: 0px 0px 300px 200px $color;
+	box-shadow: 0px 0px 300px 200px $color;
+}
+
+// used for section titles w/in a page (eg. 'HomePage')
+@mixin sectionTitle($color: #ffffff) {
+	font-size: calc(2.5vw + 2.5vh);
+	color: $color;
+	margin-bottom: 4rem;
+
+	& > b {
+		color: $accent;
+	}
+}
+
+// GRADIENTS & STUFF //
+.modern-gradient {
+	background-image: radial-gradient(
+		farthest-corner circle at 50% 50% in oklab,
+		#5f17e6 0%,
+		rgb(13, 17, 21) 100%
+	);
+}
+
+// DARK-MODE
+@mixin modernGradientDark() {
+	background-image: radial-gradient(
+		farthest-corner circle at 50% 50% in oklab,
+		#5f17e6 0%,
+		rgb(13, 17, 21) 100%
+	);
+}
+// DARK-MODE
+@mixin classicGradientDark() {
+	background-image: radial-gradient(
+		farthest-corner circle at 50% 50%,
+		#5f17e6 0%,
+		#0d1115 100%
+	);
+}
+
+@mixin gradientDark() {
+	background-image: radial-gradient(
+		farthest-corner circle at 94% 84% in oklab,
+		#5f17e6 0%,
+		#0d1115 127% 127%
+	);
+}
+
+// LIGHT GRADIENTS //
+
+@mixin modernGradientLight() {
+	background-image: radial-gradient(
+		farthest-corner circle at 50% 50% in oklab,
+		#5f17e6 0%,
+		#eaecef 100%
+	);
+}
+@mixin classicGradientLight() {
+	background-image: radial-gradient(
+		farthest-corner circle at 50% 50%,
+		#5f17e6 0%,
+		#eaecef 100%
+	);
+}
+
+@mixin gradientLight() {
+	background-image: radial-gradient(
+		farthest-corner circle at 94% 84% in oklab,
+		#5f17e6 0%,
+		#eaecef 127% 127%
+	);
+}
+
+@mixin gradientSubtleDark() {
+	background-image: radial-gradient(
+		farthest-corner circle at 41% 75% in oklab,
+		rgb(37% 9% 90%) -50% -50%,
+		#0d1115 76% -41%
+	);
+}
+
+// CUSTOMS SCROLLBARS //
+
+@mixin scrollbar($color: var(--blueGrey400)) {
+	&::-webkit-scrollbar {
+		border-radius: 5rem;
+		width: 0.8rem;
+		// display: none;
+	}
+	&::-webkit-scrollbar-thumb {
+		width: 0.8rem;
+		border-radius: 5rem;
+		background-color: $color;
+	}
+}
+
+// SECTIONS PADDING
+
+@mixin sectionPadding() {
+	padding: var(--pagePadding)
+		calc(var(--pagePadding) + var(--page-content-padding));
+
+	@media only screen and (max-width: 700px) {
+		padding: var(--pagePadding) calc(var(--pagePadding) + 1rem);
+	}
+}

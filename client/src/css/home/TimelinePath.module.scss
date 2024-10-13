@@ -1,0 +1,19 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$pathSize: 0.3rem;
+
+.TimelinePath {
+	width: 0.5rem;
+	height: 100%;
+	justify-self: center;
+
+	&_path {
+		height: 1px;
+		width: $pathSize;
+		height: 100%;
+		background-color: var(--timeline-path);
+		border-radius: 5rem;
+	}
+}
