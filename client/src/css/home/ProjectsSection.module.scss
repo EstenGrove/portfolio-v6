@@ -1,0 +1,19 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.ProjectsSection {
+	@include fill_container;
+	height: auto;
+	min-height: 100vh;
+
+	&_subtitle {
+		font-size: 2rem;
+		color: var(--header-name);
+	}
+}
+
+.Loading {
+	width: 100%;
+	@include flex_row(center, flex-start);
+}

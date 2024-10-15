@@ -34,10 +34,10 @@
 	--font-size-15: 4rem;
 
 	/* Theme/Color Variables */
-	--bg-body: #eaecef;
+	--bg-body: rgb(234, 236, 239);
 	--main-accent: rgb(124, 58, 237);
 	--alt-accent: rgb(0, 226, 189);
-	--accent-bright-red: #ff0066;
+	--accent-bright-red: rgb(255, 0, 102);
 
 	/* Red Shades */
 	--red50: rgb(254, 242, 242);
@@ -191,8 +191,9 @@
 	--projectSubtitleColor: var(--blueGrey700);
 	--projectInfoSpacing: 5.5rem;
 
-	/* --accent: rgb(105 25 255); */
-	--accent: #ff0066;
+	/* --accent: #ff0066; */
+	--accent: rgb(105 25 255);
+	--accent-bright-red: rgb(255, 0, 102);
 	--accent-bg: rgba(105, 25, 255, 0.2);
 	--logo-color: var(--blueGrey800);
 	--toggle-sun: var(--orange500);

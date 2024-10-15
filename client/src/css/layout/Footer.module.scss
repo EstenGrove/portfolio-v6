@@ -1,0 +1,50 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.Footer {
+	position: relative;
+	width: 100vw;
+	max-width: 100%;
+	height: 10rem;
+	display: flex;
+	flex: 1 0;
+	flex-shrink: 0;
+	align-items: flex-end;
+	margin-top: auto;
+	padding: var(--pagePadding);
+	padding-bottom: 0;
+	background-color: var(--bg-main);
+	// border-top: 1px solid var(--border);
+	color: #fff;
+	// background-color: var(--accent);
+
+	&_inner {
+		@include fill_container;
+		@include flex_row(center, flex-end);
+		padding-bottom: 0.3rem;
+	}
+}
+
+.LegalInfo {
+	width: 100%;
+	font-size: 1.6rem;
+	color: #fff;
+	color: var(--text-secondary);
+	@include flex_col(center, center);
+
+	& i {
+		color: #fff;
+		color: var(--toggle-sun);
+	}
+}
+
+.FooterWave {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 15rem;
+	z-index: -1;
+}

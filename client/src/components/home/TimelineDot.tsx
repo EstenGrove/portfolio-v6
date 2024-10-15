@@ -32,16 +32,8 @@ const TimelineDot = ({ color, type = "flat" }: Props) => {
 			data-timeline="dot"
 			className={styles.TimelineDot}
 			style={{ backgroundColor: getDotColor(type, color as string) }}
-		>
-			{/*  */}
-			{/*  */}
-			{/*  */}
-		</div>
+		></div>
 	);
 };
 
 export default TimelineDot;
-
-TimelineDot.defaultProps = {};
-
-TimelineDot.propTypes = {};

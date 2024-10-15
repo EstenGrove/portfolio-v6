@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import styles from "../../css/home/TimelineConnector.module.scss";
 
 type Props = {
@@ -14,7 +14,3 @@ const TimelineConnector = ({ children }: Props) => {
 };
 
 export default TimelineConnector;
-
-TimelineConnector.defaultProps = {};
-
-TimelineConnector.propTypes = {};

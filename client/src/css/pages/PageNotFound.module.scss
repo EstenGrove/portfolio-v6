@@ -1,0 +1,12 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.PageNotFound {
+	width: 100%;
+	padding: var(--pagePadding);
+
+	& h1 {
+		font-size: 5rem;
+	}
+}

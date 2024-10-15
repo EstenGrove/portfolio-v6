@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import styles from "../../css/home/TimelineContent.module.scss";
 
 type Props = {
@@ -14,7 +14,3 @@ const TimelineContent = ({ children }: Props) => {
 };
 
 export default TimelineContent;
-
-TimelineContent.defaultProps = {};
-
-TimelineContent.propTypes = {};

@@ -1,20 +1,15 @@
-import React from "react";
 import styles from "../../css/home/TimelineSection.module.scss";
-import Title from "../shared/Title";
+import Text from "../shared/Text";
 import Timeline from "./Timeline";
-import TimelineItem from "./TimelineItem";
 import TimelineDot from "./TimelineDot";
 import TimelinePath from "./TimelinePath";
-import TimelineConnector from "./TimelineConnector";
+import TimelineItem from "./TimelineItem";
 import TimelineContent from "./TimelineContent";
-import Text from "../shared/Text";
+import TimelineConnector from "./TimelineConnector";
 
-type Props = {};
-
-const TimelineSection = ({}: Props) => {
+const TimelineSection = () => {
 	return (
-		<section className={styles.TimelineSection}>
-			<Title title="experience" />
+		<div className={styles.TimelineSection}>
 			{/* TIMELINE */}
 			<Timeline>
 				<TimelineItem>
@@ -30,7 +25,7 @@ const TimelineSection = ({}: Props) => {
 							Worked in sprint-base Agile work-flow scoping, designing &
 							building out the flagship software product for an industry
 							adjacent to healthcare. Involved working acroll multiple different
-							internal projects including .Net, SQL, React, AngularJS and Vue.
+							internal projects including VueJS, React, AngularJS and SQL.
 						</Text>
 					</TimelineContent>
 				</TimelineItem>
@@ -77,7 +72,7 @@ const TimelineSection = ({}: Props) => {
 					</TimelineConnector>
 					<TimelineContent>
 						<Text color="var(--blueGrey600)" size="4">
-							<b>Jr. Server Admin</b> - 2017-2018 - Bluehost (Endurance)
+							<b>Server Tech II</b> - 2017-2018 - Bluehost (Endurance)
 						</Text>
 						<Text size="6" color="var(--nav-text)">
 							Worked in a loose "Agile" environment managing regular support
@@ -91,12 +86,8 @@ const TimelineSection = ({}: Props) => {
 				{/*  */}
 			</Timeline>
 			{/*  */}
-		</section>
+		</div>
 	);
 };
 
 export default TimelineSection;
-
-TimelineSection.defaultProps = {};
-
-TimelineSection.propTypes = {};

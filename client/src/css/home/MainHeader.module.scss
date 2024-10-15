@@ -60,11 +60,12 @@ $accent: var(--accent);
 			color: var(--header-hi);
 		}
 		&_name {
-			font-size: 2.8rem;
+			font-size: 2.6rem;
 			color: var(--header-name);
 		}
 		&_title {
-			font-size: calc(2.5vw + 3.5vh);
+			// font-size: calc(2.5vw + 3.5vh);
+			font-size: 3.5rem;
 			color: var(--header-title);
 		}
 	}

@@ -190,7 +190,13 @@ $textColor: var(--nav-text);
 		}
 	}
 }
-
+.isActive {
+	color: $accent;
+}
+.MobileList_item .isActive,
+.DesktopList_item .isActive {
+	color: $accent;
+}
 @media only screen and (max-width: 650px) {
 	.DesktopList {
 		display: none;
