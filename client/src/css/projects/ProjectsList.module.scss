@@ -1,0 +1,35 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.ProjectsList {
+	width: 100%;
+	height: auto;
+	min-height: 20rem;
+	padding: 1rem 2rem;
+
+	&_listContainer {
+		width: 100%;
+		max-width: 100%;
+		padding: 1rem 0;
+		list-style: none;
+		@include flex_col(flex-start, flex-start, wrap);
+		gap: 1rem 2rem;
+
+		// &::-webkit-scrollbar {
+		// 	-webkit-appearance: none;
+		// 	width: 3px;
+		// 	height: 8px;
+		// }
+		// &::-webkit-scrollbar-thumb {
+		// 	border-radius: 5rem;
+		// 	background-color: var(--border);
+		// }
+	}
+}
+
+@media only screen and (max-width: 1020px) {
+	.ProjectsList {
+		padding: 1rem 1rem;
+	}
+}

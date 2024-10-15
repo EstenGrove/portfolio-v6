@@ -50,5 +50,11 @@ export const { setSelectedProject, resetSelectedProject } =
 export const selectCurrentProject = (state: RootState): Project | null => {
 	return state.projects.selectedProject;
 };
+export const selectProjects = (state: RootState): Project[] => {
+	return state.projects.projects as Project[];
+};
+export const selectIsLoadingProjects = (state: RootState): boolean => {
+	return state.projects.status === "PENDING";
+};
 
 export default projectsSlice.reducer;

@@ -1,0 +1,29 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$accent: var(--accent);
+$sizeCalc: calc(1.5vw + 1.5vh);
+
+.GoToLink {
+	width: max-content;
+	padding: 0.5rem 0;
+
+	& > a {
+		width: max-content;
+		height: calc(1.5vw + 2.2vh);
+		@include flex_row(flex-start, center);
+		gap: 0 0.3rem;
+		font-size: $sizeCalc;
+		font-weight: 600;
+		color: $accent;
+		text-decoration: none;
+		@include hoverEffect($accent, $accent);
+	}
+	&_icon {
+		width: $sizeCalc;
+		height: $sizeCalc;
+		fill: $accent;
+		align-self: flex-end;
+	}
+}

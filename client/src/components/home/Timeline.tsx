@@ -14,7 +14,3 @@ const Timeline = ({ children }: Props) => {
 };
 
 export default Timeline;
-
-Timeline.defaultProps = {};
-
-Timeline.propTypes = {};

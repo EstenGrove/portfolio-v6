@@ -1,0 +1,31 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$accent: var(--accent);
+
+.GoToProject {
+	width: max-content;
+	height: max-content;
+
+	& > a {
+		width: max-content;
+		height: max-content;
+		@include flex_row(center, center);
+		gap: 0 0.5rem;
+		font-size: 1.7rem;
+		font-weight: 600;
+		text-decoration: none;
+		color: var(--accent);
+		&:hover {
+			@include hoverEffect($accent, $accent);
+		}
+	}
+
+	&_icon {
+		width: 1.8rem;
+		height: 1.8rem;
+		margin-top: 0.25rem;
+		fill: var(--accent);
+	}
+}

@@ -15,5 +15,16 @@ export interface Project {
 	desc: string;
 	alt: string;
 	sourceList: PictureSource[];
+	listOfTech: string[];
 	links?: ProjectUrls;
+	fallbackImgSrc: string;
+}
+
+export interface ProjectInfo extends Project {
+	about: string[];
+	usecases: string[];
+	insights: string[];
+	createdDate: string;
+	updatedDate: string | null;
+	isActive: true;
 }

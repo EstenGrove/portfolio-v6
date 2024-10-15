@@ -1,0 +1,122 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$fontScale: var(--font-scale, 1.2);
+
+.Text {
+	width: auto;
+	height: min-content;
+	line-height: normal;
+}
+
+// FONT-SIZES
+.size1 {
+	font-size: calc(var(--font-size-1) * $fontScale);
+}
+.size2 {
+	font-size: calc(var(--font-size-2) * $fontScale);
+}
+.size3 {
+	font-size: calc(var(--font-size-3) * $fontScale);
+}
+.size4 {
+	font-size: calc(var(--font-size-4) * $fontScale);
+}
+.size5 {
+	font-size: calc(var(--font-size-5) * $fontScale);
+}
+.size6 {
+	font-size: calc(var(--font-size-6) * $fontScale);
+}
+.size7 {
+	font-size: calc(var(--font-size-7) * $fontScale);
+}
+.size8 {
+	font-size: calc(var(--font-size-8) * $fontScale);
+}
+.size9 {
+	font-size: calc(var(--font-size-9) * $fontScale);
+}
+.size10 {
+	font-size: calc(var(--font-size-10) * $fontScale);
+}
+// FONT-WEIGHTS
+.wt100 {
+	font-weight: 100;
+}
+.wt200 {
+	font-weight: 200;
+}
+.wt300 {
+	font-weight: 300;
+}
+.wt400 {
+	font-weight: 400;
+}
+.wt500 {
+	font-weight: 500;
+}
+.wt600 {
+	font-weight: 600;
+}
+.wt700 {
+	font-weight: 700;
+}
+.wt800 {
+	font-weight: 800;
+}
+.wt900 {
+	font-weight: 900;
+}
+.wt1000 {
+	font-weight: 1000;
+}
+
+.alignStart,
+.alignLeft {
+	text-align: left;
+}
+.alignEnd,
+.alignRight {
+	text-align: end;
+}
+.alignMiddle,
+.alignCenter {
+	text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+	$fontScale: 0.9;
+	// FONT-SIZES
+	.size1 {
+		font-size: calc(var(--font-size-1) * $fontScale);
+	}
+	.size2 {
+		font-size: calc(var(--font-size-2) * $fontScale);
+	}
+	.size3 {
+		font-size: calc(var(--font-size-3) * $fontScale);
+	}
+	.size4 {
+		font-size: calc(var(--font-size-4) * $fontScale);
+	}
+	.size5 {
+		font-size: calc(var(--font-size-5) * $fontScale);
+	}
+	.size6 {
+		font-size: calc(var(--font-size-6) * $fontScale);
+	}
+	.size7 {
+		font-size: calc(var(--font-size-7) * $fontScale);
+	}
+	.size8 {
+		font-size: calc(var(--font-size-8) * $fontScale);
+	}
+	.size9 {
+		font-size: calc(var(--font-size-9) * $fontScale);
+	}
+	.size10 {
+		font-size: calc(var(--font-size-10) * $fontScale);
+	}
+}

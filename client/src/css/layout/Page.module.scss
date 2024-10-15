@@ -1,0 +1,10 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$padding: var(--pagePadding);
+
+.Page {
+	@include fill_container;
+	padding: $padding;
+}

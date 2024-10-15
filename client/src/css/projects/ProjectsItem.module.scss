@@ -1,0 +1,203 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+// $cardWidth: minmax(100%, 70rem);
+$cardWidth: max(100%, 95rem);
+$cardHeight: 35rem;
+
+$container: clamp(100%, 120rem, 100%);
+
+$imgWidth: 35rem;
+$descContainer: minmax(20rem, 70%);
+$iconSize: 2.8rem;
+
+$infoPadding: 3% 4%;
+
+$accent: var(--accent);
+
+.ProjectsItem {
+	width: $cardWidth;
+	min-width: auto;
+	max-width: max(100%, 120rem);
+	min-height: $cardHeight;
+	max-height: auto;
+	height: $cardHeight;
+	border-radius: 1rem;
+	border: 1px solid var(--border);
+	transition: border 0.2s ease-in-out;
+	@include flex_row(flex-start, flex-start);
+	&:hover {
+		cursor: pointer;
+		border: 1px solid var(--accent);
+	}
+	&:hover &_img_mask {
+		opacity: 0;
+		transition: opacity 0.4s ease-in-out;
+	}
+
+	&_img {
+		position: relative;
+		width: $imgWidth;
+		min-width: $imgWidth;
+		max-width: $imgWidth;
+		height: 100%;
+		min-height: 100%;
+		max-height: 100%;
+		border-radius: 1rem 0 0 1rem;
+		border-right: 1px solid var(--border);
+
+		&_mask {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+			border-radius: 1rem 0 0 1rem;
+			background-color: var(--accent);
+			opacity: 0.4;
+			transition: opacity 0.4s ease-in-out;
+		}
+		& img {
+			border-radius: 1rem 0 0 1rem;
+		}
+	}
+
+	&_info {
+		width: 100%;
+		min-width: auto;
+		max-width: 100%;
+		height: 100%;
+		min-height: 100%;
+		padding: 3rem 4rem;
+		@include flex_col(flex-start, flex-start, nowrap);
+		gap: 3rem 0;
+		border-radius: 0 1rem 1rem 0;
+		word-wrap: normal;
+		overflow-wrap: normal;
+
+		&_title {
+			width: 100%;
+			max-width: 100%;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			font-size: 2.5rem;
+			color: var(--text-main);
+		}
+		&_desc {
+			width: 100%;
+			height: auto;
+			max-height: 100%;
+			font-size: 1.7rem;
+			color: var(--section-title);
+			overflow-wrap: break-word;
+			text-overflow: clip;
+			text-wrap: wrap;
+		}
+		&_links {
+			margin-top: auto;
+			width: 100%;
+			@include flex_row(flex-end, center);
+			gap: 0 1rem;
+			// comment this out for aligned right
+			@include flex_row(space-between, flex-end);
+		}
+	}
+}
+
+.BadgesList {
+	width: 100%;
+	height: auto;
+
+	&_list {
+		width: 100%;
+		height: auto;
+		list-style: none;
+		@include flex_row(flex-start, flex-start, wrap);
+		gap: 1rem 1rem;
+	}
+}
+.Badge {
+	padding: 0.2rem 1rem;
+	border-radius: 5rem;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: $accent;
+	background-color: var(--badgeBG);
+}
+
+.IconLink {
+	width: max-content;
+	height: max-content;
+	text-decoration: none;
+	align-self: flex-end;
+	margin-top: 0.3rem;
+	&:hover {
+		cursor: pointer;
+		fill: $accent;
+	}
+
+	&_icon {
+		min-width: $iconSize;
+		min-height: $iconSize;
+		max-width: $iconSize;
+		max-height: $iconSize;
+		width: $iconSize;
+		height: $iconSize;
+		fill: var(--text-secondary);
+		&:hover {
+			cursor: pointer;
+			fill: $accent;
+		}
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.ProjectsItem {
+		max-width: 120rem;
+	}
+}
+@media only screen and (max-width: 1199px) {
+	.ProjectsItem {
+		max-width: 100%;
+	}
+}
+@media only screen and (max-width: 1020px) {
+	.ProjectsItem {
+		width: 100%;
+		min-width: 100%;
+		max-width: 100vw;
+		@include flex_col(center, center);
+		min-height: 35rem;
+		height: auto;
+
+		&_img {
+			min-width: 100%;
+			width: 100%;
+			max-width: 100%;
+			height: 20rem;
+			min-height: 20rem;
+			border: none;
+			border-radius: 1rem 1rem 0 0;
+
+			&_mask {
+				border-radius: 1rem 1rem 0 0;
+			}
+
+			& img {
+				border-radius: 1rem 1rem 0 0;
+			}
+		}
+
+		&_info {
+			padding: $infoPadding;
+		}
+	}
+	.IconLink {
+		margin-top: 0;
+		align-self: baseline;
+		margin-bottom: -3rem;
+	}
+}

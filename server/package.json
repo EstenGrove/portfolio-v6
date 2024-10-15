@@ -5,10 +5,13 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.13.2",
-    "hono": "^4.6.4"
+    "hono": "^4.6.4",
+    "pg": "^8.13.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
+    "@types/pg": "^8.11.10",
+    "dotenv": "^16.4.5",
     "tsx": "^4.7.1"
   }
 }

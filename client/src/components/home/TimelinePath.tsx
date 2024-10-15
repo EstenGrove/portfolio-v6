@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import { CSSProperties } from "react";
 import cssModule from "../../css/home/TimelinePath.module.scss";
 
 type Props = {
@@ -14,7 +14,3 @@ const TimelinePath = ({ styles }: Props) => {
 };
 
 export default TimelinePath;
-
-TimelinePath.defaultProps = {};
-
-TimelinePath.propTypes = {};

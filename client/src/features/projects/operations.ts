@@ -12,6 +12,7 @@ const fetchProjectsList = async (): Promise<Project[] | unknown> => {
 	try {
 		const request = (await fetchWithAuth(url)) as Response;
 		const response = (await request.json()) as ProjectsResponse;
+
 		return response.Data.Projects;
 	} catch (error) {
 		return error;
@@ -24,4 +25,4 @@ const fetchProjects = createAsyncThunk("projects/fetchProjects", async () => {
 	return projects;
 });
 
-export { fetchProjects };
+export { fetchProjects, fetchProjectsList };

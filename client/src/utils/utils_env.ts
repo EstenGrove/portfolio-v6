@@ -37,14 +37,14 @@ const CURRENT_ENV_AUTH = API_AUTH[CURRENT_ENV_NAME];
 
 const API_ENDPOINTS = {
 	analytics: {
-		logVisit: "/TinyPixel",
+		logVisit: "/tinyPixel",
 	},
 	projects: {
-		getAllProjects: "/GetProjects",
-		getProjectInfo: "/GetProject",
+		getAllProjects: "/getProjects",
+		getProjectInfo: "/getProject",
 	},
 	snippets: {
-		getAllSnippets: "/GetSnippets",
+		getAllSnippets: "/getSnippets",
 	},
 };
 const { analytics, projects, snippets } = API_ENDPOINTS;

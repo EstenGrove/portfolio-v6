@@ -32,7 +32,9 @@ const useWindowSize = () => {
 		};
 	}, []);
 
-	return windowSize;
+	return useMemo(() => {
+		return windowSize;
+	}, [windowSize]);
 };
 
 export { useWindowSize };

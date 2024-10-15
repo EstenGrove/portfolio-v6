@@ -20,7 +20,3 @@ const TimelineItem = ({ children }: Props) => {
 };
 
 export default TimelineItem;
-
-TimelineItem.defaultProps = {};
-
-TimelineItem.propTypes = {};
