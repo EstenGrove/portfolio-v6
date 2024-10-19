@@ -124,6 +124,7 @@ const Email = () => {
 			target="_blank"
 			rel="noreferrer"
 			className={styles.Email}
+			title="Email me"
 		>
 			<svg className={styles.Email_icon}>
 				<use xlinkHref={`${sprite}#icon-alternate_email`}></use>
@@ -139,6 +140,7 @@ const GitHub = () => {
 			rel="noreferrer"
 			target="_blank"
 			className={styles.GitHub}
+			title="Visit my GitHub"
 		>
 			<svg className={styles.GitHub_icon}>
 				<use xlinkHref={`${sprite}#icon-github`}></use>
@@ -159,9 +161,9 @@ const Island = () => {
 	return (
 		<aside className={styles.Island}>
 			<div className={styles.Island_inner}>
+				<Toggle />
 				<GitHub />
 				<Email />
-				<Toggle />
 			</div>
 		</aside>
 	);

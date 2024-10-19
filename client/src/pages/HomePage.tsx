@@ -16,6 +16,7 @@ import TimelineSection from "../components/home/TimelineSection";
 import WaveBackground from "../components/design/WaveBackground";
 import ProjectsSection from "../components/home/ProjectsSection";
 import Wave from "../components/design/Wave";
+import ContactMeSection from "../components/home/ContactMeSection";
 
 const HomePage = () => {
 	const dispatch = useAppDispatch();
@@ -51,14 +52,15 @@ const HomePage = () => {
 			<WaveBackground order={["top", "bottom"]} />
 			<Section key="projects" title="projects">
 				<ProjectsSection projects={projects} isLoading={isLoading} />
-				{/*  */}
 			</Section>
 			<WaveBackground order={["top", "bottom"]} />
 			<Section key="experience" title="experience">
 				<TimelineSection />
 			</Section>
 			<WaveBackground order={["top", "bottom"]} />
-			{/* WAVE SEPARATOR HERE...*/}
+			<Section title="contact me">
+				<ContactMeSection />
+			</Section>
 		</div>
 	);
 };

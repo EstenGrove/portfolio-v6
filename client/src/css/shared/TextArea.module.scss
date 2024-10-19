@@ -1,0 +1,57 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.TextArea {
+	width: 100%;
+	height: auto;
+
+	&_input {
+		width: 100%;
+		height: auto;
+		min-height: 10rem;
+		border-radius: 1rem;
+		padding-top: 0.5rem;
+		padding-left: 0.5rem;
+		font-size: 1.6rem;
+		border: 1px solid var(--border);
+		background-color: var(--bg-foreground);
+		outline: none;
+		color: var(--text-main);
+		resize: vertical;
+		max-height: 15rem;
+		font-family: inherit;
+		&:hover {
+			border-color: var(--accent);
+			cursor: pointer;
+		}
+		&:focus-within {
+			border-color: var(--accent);
+			cursor: pointer;
+		}
+		&::placeholder {
+			color: var(--text-faded);
+		}
+	}
+}
+
+// Autofill overrides: Firefox
+input:-moz-autofill,
+input:-moz-autofill:hover,
+input:-moz-autofill:focus,
+input:-moz-autofill:active {
+	border: 1px solid var(--accent);
+	border-radius: 1rem;
+	outline: none;
+	background-color: var(--bg-foreground);
+}
+// Autofill overrides: Chrome/Chromium
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	border: 1px solid var(--accent);
+	border-radius: 1rem;
+	outline: none;
+	background-color: var(--bg-foreground);
+}

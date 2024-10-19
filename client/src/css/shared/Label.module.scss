@@ -1,0 +1,10 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.Label {
+	width: 100%;
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: var(--text-secondary);
+}

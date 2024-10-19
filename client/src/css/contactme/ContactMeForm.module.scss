@@ -1,0 +1,53 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.ContactMeForm {
+	width: 100%;
+	max-width: 70rem;
+	height: auto;
+	max-height: 60rem;
+	min-height: 50rem;
+	padding: 2rem 4rem;
+	border-radius: 1rem;
+	border: 1px solid var(--border);
+	background-color: var(--bg-body);
+
+	&_field {
+		width: 100%;
+		height: 100%;
+	}
+	&_submitBtn {
+		width: 100%;
+		padding: 1.2rem 1.8rem;
+		border-radius: 1rem;
+		background-color: var(--accent);
+		color: #fff;
+		font-size: 1.6rem;
+		border: none;
+		outline: none;
+		&:hover {
+			cursor: pointer;
+		}
+
+		&:disabled {
+			opacity: 0.4;
+			cursor: not-allowed;
+		}
+	}
+}
+
+.FormRow {
+	width: 100%;
+	min-height: 6rem;
+	max-height: auto;
+	margin: 2rem 0;
+	@include flex_row(center, center);
+	gap: 1rem 2rem;
+}
+
+@media only screen and (max-width: 750px) {
+	.ContactMeForm {
+		padding: 2rem 2rem;
+	}
+}
