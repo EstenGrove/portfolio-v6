@@ -1,0 +1,21 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$titleSize: calc(2.8vw + 2.8vh);
+
+.Title {
+	font-size: calc(2.8vw + 2.8vh);
+	font-weight: 800;
+	margin-bottom: var(--pagePadding);
+
+	&_heading {
+		color: var(--section-title);
+
+		& > b {
+			color: var(--accent);
+			font-size: calc($titleSize + 2rem);
+			// @include bounce();
+		}
+	}
+}

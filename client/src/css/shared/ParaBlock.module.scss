@@ -1,0 +1,19 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$fontSize: 2rem;
+
+.ParaBlock {
+	width: 100%;
+	height: auto;
+	font-size: $fontSize;
+	// font-size: calc(1.3vw + 1.3vh);
+	font-weight: 600;
+	letter-spacing: 0.05rem;
+	// line-height: calc(2vw + 2vh);
+	margin-bottom: 2rem;
+	color: var(--text-secondary);
+	display: block;
+	margin: 0 auto;
+}

@@ -27,6 +27,7 @@ $accent: var(--accent);
 	border: 1px solid var(--border);
 	transition: border 0.2s ease-in-out;
 	@include flex_row(flex-start, flex-start);
+	background-color: var(--bg-projectItem);
 	&:hover {
 		cursor: pointer;
 		border: 1px solid var(--accent);

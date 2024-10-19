@@ -1,37 +1,5 @@
-import { Pool, QueryResult, QueryResultRow } from "pg";
-
-export interface ProjectLinks {
-	site: string;
-	github: string;
-}
-export interface ProjectSource {
-	srcSet: string;
-	media?: string;
-	type?: string;
-}
-
-export interface ProjectDB {
-	project_id: number;
-	title: string;
-	description: string;
-	alt: string;
-	list_of_tech: string[];
-	fallback_img_src: string;
-	source_list: ProjectSource[];
-	is_active: boolean;
-	links: ProjectLinks;
-}
-
-export interface ProjectClient {
-	id: number;
-	title: string;
-	desc: string;
-	alt: string;
-	sourceList: ProjectSource[];
-	listOfTech: string[];
-	links?: { site: string; github: string };
-	fallbackImgSrc: string;
-}
+import { Pool, QueryResult } from "pg";
+import { ProjectDB, ProjectInfoDB } from "./types";
 
 class ProjectsService {
 	#db: Pool;
@@ -49,8 +17,25 @@ class ProjectsService {
 			return error;
 		}
 	}
-	async getProjectByID(id: number) {
-		// do stuff
+	async getProjectByID(id: number): Promise<ProjectDB | unknown> {
+		try {
+			const query = `SELECT * FROM projects WHERE project_id = $1`;
+			const results = (await this.#db.query(query, [id])) as QueryResult;
+			const project = results?.rows?.[0] as ProjectDB;
+			return project;
+		} catch (error) {
+			return error;
+		}
+	}
+	async getProjectInfoByID(id: number): Promise<ProjectInfoDB | unknown> {
+		try {
+			const query = `SELECT * FROM project_info WHERE project_id = $1`;
+			const results = (await this.#db.query(query, [id])) as QueryResult;
+			const project = results?.rows?.[0] as ProjectInfoDB;
+			return project;
+		} catch (error) {
+			return error;
+		}
 	}
 }
 

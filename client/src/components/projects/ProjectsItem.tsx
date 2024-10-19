@@ -1,9 +1,10 @@
 import styles from "../../css/projects/ProjectsItem.module.scss";
 import sprite from "../../assets/icons/portfolio.svg";
-import { Project } from "../../features/projects/types";
+import { PictureSource, Project } from "../../features/projects/types";
 import { addEllipsis } from "../../utils/utils_text";
 import Picture from "../shared/Picture";
 import GoToProject from "./GoToProject";
+import { getProjectSrcList } from "../../utils/utils_projects";
 
 type Props = {
 	project: Project;
@@ -54,12 +55,10 @@ const BadgesList = ({ list }: BadgeListProps) => {
 // REQUIREMENTS:
 // - Consider creating a rotated image of each project's image
 // 		- Rotated around -45degs so it goes from lower-left to upper-right w/ a matching background perhaps
-// - Add a purple mask overlay w/ opacity of .4 that allows the image to bleed thru slightly
-// 		- On hover, sets opacity to 1.0 for clarity of the image
 
 const ProjectsItem = ({ project, windowSize }: Props) => {
-	// const imgDims = windowSize?.width <= 850 ? "100%" : 350;
-	const imgDims = "100%";
+	const imgDims = windowSize?.width <= 1030 ? "100%" : 350;
+	const sourceList: PictureSource[] = getProjectSrcList(project.sourceList);
 
 	return (
 		<li className={styles.ProjectsItem}>
@@ -69,7 +68,7 @@ const ProjectsItem = ({ project, windowSize }: Props) => {
 					width={imgDims}
 					height={imgDims}
 					alt={project.alt ?? project.desc}
-					sourceList={project.sourceList}
+					sourceList={sourceList}
 					fallbackSrc={project.fallbackImgSrc}
 				/>
 			</div>

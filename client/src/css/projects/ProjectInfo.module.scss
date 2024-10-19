@@ -5,3 +5,24 @@
 .ProjectInfo {
 	@include fill_container;
 }
+
+// $size: calc(1.8vw + 1.8vh);
+$size: calc(1.8vw + 3vh);
+
+.Subtitle {
+	font-size: $size;
+	font-weight: 800;
+	display: block;
+	margin: 0 auto;
+
+	&_heading {
+		color: var(--section-title);
+		color: var(--projectSubtitleColor);
+
+		& > b {
+			color: var(--accent);
+			font-size: calc($size + 2rem);
+			@include bounce();
+		}
+	}
+}

@@ -1,14 +1,20 @@
 import { Project } from "../../features/projects/types";
 import styles from "../../css/projects/ProjectsPageHeader.module.scss";
+import { getProjectSrcList } from "../../utils/utils_projects";
+import { WindowSize } from "../../hooks/useWindowSize";
 import Picture from "../shared/Picture";
-import BadgesList from "../shared/BadgesList";
-import Title from "../shared/Title";
+import BadgesList from "./BadgesList";
+import Title from "../layout/Title";
 
 type Props = {
 	project: Project;
+	windowSize: WindowSize;
 };
 
-const ProjectsPageHeader = ({ project }: Props) => {
+const ProjectsPageHeader = ({ project, windowSize }: Props) => {
+	const sourceList = getProjectSrcList(project?.sourceList);
+	const height = windowSize.height < 850 ? 250 : 400;
+
 	return (
 		<header className={styles.ProjectsPageHeader}>
 			<div className={styles.ProjectsPageHeader_info}>
@@ -22,9 +28,9 @@ const ProjectsPageHeader = ({ project }: Props) => {
 			<div className={styles.ProjectsPageHeader_img}>
 				<Picture
 					width={880}
-					height={400}
+					height={height}
 					alt={project?.alt}
-					sourceList={project?.sourceList}
+					sourceList={sourceList}
 					fallbackSrc={project?.fallbackImgSrc}
 				/>
 			</div>

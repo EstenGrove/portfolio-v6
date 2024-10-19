@@ -1,0 +1,8 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.NoData {
+	@include fill_container;
+	@include colCenter();
+}

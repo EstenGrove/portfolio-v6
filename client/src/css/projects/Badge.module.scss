@@ -1,0 +1,36 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$accent: var(--accent);
+
+.Badge {
+	padding: 0.2rem 1rem;
+	border-radius: 5rem;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: $accent;
+	@include flex_row(center, center);
+	background-color: var(--badgeBG);
+}
+
+.XSM {
+	padding: 0.2rem 0.4rem;
+	font-size: 1rem;
+}
+.SM {
+	padding: 0.2rem 0.8rem;
+	font-size: 1.2rem;
+}
+.MD {
+	padding: 0.4rem 1.2rem;
+	font-size: 1.4rem;
+}
+.LG {
+	padding: 0.6rem 1.6rem;
+	font-size: 1.6rem;
+}
+.XLG {
+	padding: 0.6rem 1.8rem;
+	font-size: 2rem;
+}

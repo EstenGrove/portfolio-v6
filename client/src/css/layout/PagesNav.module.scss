@@ -1,0 +1,14 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.PagesNav {
+	width: 15rem;
+	height: auto;
+
+	&_icon {
+		width: 1.8rem;
+		height: 1.8rem;
+		fill: var(--accent);
+	}
+}

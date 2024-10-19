@@ -1,4 +1,9 @@
-import { ProjectClient, ProjectDB } from "../services/ProjectsService";
+import {
+	ProjectClient,
+	ProjectDB,
+	ProjectInfoClient,
+	ProjectInfoDB,
+} from "../services/types";
 
 const normalizeProject = (project: ProjectDB): ProjectClient => {
 	const client: ProjectClient = {
@@ -21,4 +26,19 @@ const normalizeProjects = (projects: ProjectDB[]): ProjectClient[] => {
 	return clients;
 };
 
-export { normalizeProject, normalizeProjects };
+const normalizeProjectInfo = (
+	projectInfo: ProjectInfoDB
+): ProjectInfoClient => {
+	const client: ProjectInfoClient = {
+		pid: projectInfo.pid,
+		projectID: projectInfo.project_id,
+		about: projectInfo.about || [],
+		usecases: projectInfo.usecases || [],
+		insights: projectInfo.insights || [],
+		isActive: projectInfo.is_active,
+		createdDate: projectInfo.created_date,
+	};
+	return client;
+};
+
+export { normalizeProject, normalizeProjects, normalizeProjectInfo };
