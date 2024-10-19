@@ -28,3 +28,24 @@
 		border-color: var(--accent);
 	}
 }
+
+// Autofill overrides: Firefox
+input:-moz-autofill,
+input:-moz-autofill:hover,
+input:-moz-autofill:focus,
+input:-moz-autofill:active {
+	border: 1px solid var(--accent);
+	border-radius: 1rem;
+	outline: none;
+	background-color: var(--bg-foreground);
+}
+// Autofill overrides: Chrome/Chromium
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	border: 1px solid var(--accent);
+	border-radius: 1rem;
+	outline: none;
+	background-color: var(--bg-foreground);
+}

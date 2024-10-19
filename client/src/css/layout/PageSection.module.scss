@@ -1,0 +1,32 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$titleSize: calc(1.8vw + 1.8vh);
+
+.PageSection {
+	width: 100%;
+	min-height: 30vh;
+	max-width: 120rem;
+	height: auto;
+	padding-bottom: 2rem;
+	padding-top: 0;
+	display: block;
+	margin: 0 auto;
+
+	&_title {
+		font-size: $titleSize;
+		color: var(--section-title);
+		margin-bottom: 4rem;
+
+		& > b {
+			color: var(--accent);
+			font-size: calc($titleSize + 2rem);
+		}
+	}
+	&_inner {
+		width: 100%;
+		height: max-content;
+		// height: auto;
+	}
+}

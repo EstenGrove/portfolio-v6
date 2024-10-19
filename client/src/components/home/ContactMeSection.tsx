@@ -6,7 +6,6 @@ interface FormValues {
 	firstName: string;
 	lastName: string;
 	email: string;
-	// subject: string;
 	message: string;
 }
 
@@ -14,11 +13,11 @@ const initialState: FormValues = {
 	firstName: "",
 	lastName: "",
 	email: "",
-	// subject: "",
 	message: "",
 };
 
 const ContactMeSection = () => {
+	const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 	const [formValues, setFormValues] = useState<FormValues>(initialState);
 
 	const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -30,7 +29,11 @@ const ContactMeSection = () => {
 	};
 
 	const handleSubmit = async () => {
-		//
+		// do stuff
+
+		// when finished...reset states
+		setIsSubmitting(false);
+		setFormValues(initialState);
 	};
 
 	return (
@@ -38,7 +41,11 @@ const ContactMeSection = () => {
 			<ContactMeForm
 				values={formValues}
 				onChange={onChange}
-				onSubmit={handleSubmit}
+				isSubmitting={isSubmitting}
+				onSubmit={() => {
+					setIsSubmitting(true);
+					handleSubmit();
+				}}
 			/>
 		</div>
 	);

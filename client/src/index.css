@@ -231,6 +231,7 @@
 :root[data-theme="light"] {
 	--bg-body: #eaecef;
 	--bg-foreground: var(--bg-foreground-light);
+	--bg-projectItem: var(--blueGrey200);
 	--text-main: var(--blueGrey800);
 	--text-secondary: rgb(100, 116, 139);
 	--text-faded: var(--blueGrey300);
@@ -264,6 +265,7 @@
 :root[data-theme="dark"] {
 	--bg-body: #0d1115;
 	--bg-foreground: var(--bg-foreground-dark);
+	--bg-projectItem: rgba(12, 15, 19, 1);
 	--text-main: var(--blueGrey200);
 	--text-secondary: rgb(100, 116, 139);
 	--text-faded: var(--blueGrey700);

@@ -40,8 +40,10 @@ const API_ENDPOINTS = {
 		logVisit: "/tinyPixel",
 	},
 	projects: {
-		getAllProjects: "/getProjects",
-		getProjectInfo: "/getProject",
+		getAllProjects: "/projects",
+		getProjectInfo: "/projects",
+		// getAllProjects: "/getProjects",
+		// getProjectInfo: "/getProject",
 	},
 	snippets: {
 		getAllSnippets: "/getSnippets",

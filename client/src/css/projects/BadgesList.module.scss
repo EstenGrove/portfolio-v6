@@ -1,0 +1,16 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.BadgesList {
+	width: 100%;
+	height: auto;
+
+	&_list {
+		width: 100%;
+		height: auto;
+		list-style: none;
+		@include flex_row(flex-start, flex-start, wrap);
+		gap: 0 1rem;
+	}
+}

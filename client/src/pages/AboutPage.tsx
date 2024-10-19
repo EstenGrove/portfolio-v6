@@ -6,8 +6,6 @@ const AboutPage = () => {
 		<Page>
 			<div className={styles.AboutPage}>
 				<h1>AboutPage</h1>
-				{/*  */}
-				{/*  */}
 			</div>
 		</Page>
 	);

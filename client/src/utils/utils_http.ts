@@ -7,10 +7,13 @@ const defaultOpts = {
 	},
 };
 
+// ##TODOS:
+// - Fix CORs errors
+// - Un-comment 'headers' & 'mode' when site is deployed/live
 const fetchWithAuth = (url: string, options: RequestInit = defaultOpts) => {
 	const {
 		method = "GET",
-		headers = defaultOpts.headers,
+		// headers = defaultOpts.headers,
 		signal = AbortSignal.timeout(10000),
 	} = options;
 
@@ -29,4 +32,16 @@ const fetchWithAuth = (url: string, options: RequestInit = defaultOpts) => {
 	}
 };
 
-export { fetchWithAuth };
+const fetchImage = async (imageName: string) => {
+	const url = "http://localhost:3000" + "/something/" + imageName;
+
+	try {
+		const req = await fetch(url);
+		const res = await req.blob();
+		return res;
+	} catch (error) {
+		return error;
+	}
+};
+
+export { fetchWithAuth, fetchImage };

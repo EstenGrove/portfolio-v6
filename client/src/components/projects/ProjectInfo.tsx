@@ -1,6 +1,6 @@
+import { ReactNode } from "react";
 import styles from "../../css/projects/ProjectInfo.module.scss";
 import type { ProjectInfo } from "../../features/projects/types";
-import Subtitle from "../shared/Subtitle";
 import ParaBlock from "../shared/ParaBlock";
 import Divider from "../layout/Divider";
 
@@ -8,6 +8,18 @@ type SectionName = "about" | "usecases" | "insights";
 
 type Props = {
 	projectInfo: ProjectInfo;
+};
+
+type SubtitleProps = {
+	children?: ReactNode;
+};
+
+const Subtitle = ({ children }: SubtitleProps) => {
+	return (
+		<div className={styles.Subtitle}>
+			<h3 className={styles.Subtitle_heading}>{children}</h3>
+		</div>
+	);
 };
 
 type SectionProps = {

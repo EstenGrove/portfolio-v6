@@ -8,7 +8,6 @@ interface FormValues {
 	firstName: string;
 	lastName: string;
 	email: string;
-	// subject: string;
 	message: string;
 }
 
@@ -29,8 +28,7 @@ const FormRow = ({ children }: RowProps) => {
 const enableSubmit = (values: FormValues) => {
 	const entries = Object.entries(values);
 
-	return entries.every(([key, val]) => {
-		console.log(`[${key}]`, val);
+	return entries.every(([, val]) => {
 		return !!val && val !== "";
 	});
 };
