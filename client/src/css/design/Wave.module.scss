@@ -14,3 +14,13 @@
 .TopWave {
 	width: 100%;
 }
+
+@media only screen and (max-height: 940px) {
+	.Wave {
+		height: 32rem;
+		padding-top: 5rem;
+		&_padding {
+			height: 12rem;
+		}
+	}
+}

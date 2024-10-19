@@ -23,7 +23,7 @@ type Props = {
 const ThemeProvider = ({ children }: Props) => {
 	const [theme, setTheme] = useState<Theme>(() => {
 		const prefTheme = getPreferredTheme();
-		// setThemeToBody(prefTheme);
+		setThemeToBody(prefTheme);
 		return prefTheme;
 	});
 
@@ -46,4 +46,4 @@ const ThemeProvider = ({ children }: Props) => {
 	);
 };
 
-export { ThemeProvider };
+export { ThemeProvider, ThemeContext };

@@ -16,13 +16,14 @@ import TimelineSection from "../components/home/TimelineSection";
 import WaveBackground from "../components/design/WaveBackground";
 import ProjectsSection from "../components/home/ProjectsSection";
 import Wave from "../components/design/Wave";
-import MonoWave from "../components/design/MonoWave";
+import ContactMeSection from "../components/home/ContactMeSection";
 
 const HomePage = () => {
 	const dispatch = useAppDispatch();
 	const projects = useAppSelector(selectProjects);
 	const isLoading = useAppSelector(selectIsLoadingProjects);
 
+	// fetch projects, if not already hydrated
 	useEffect(() => {
 		let isMounted = true;
 		if (!isMounted) {
@@ -49,18 +50,17 @@ const HomePage = () => {
 				<AboutSection />
 			</Section>
 			<WaveBackground order={["top", "bottom"]} />
-			<MonoWave />
-			{/* <WaveBackground order={["top", "bottom"]} /> */}
 			<Section key="projects" title="projects">
 				<ProjectsSection projects={projects} isLoading={isLoading} />
-				{/*  */}
 			</Section>
-			{/* <WaveBackground order={["top", "bottom"]} /> */}
+			<WaveBackground order={["top", "bottom"]} />
 			<Section key="experience" title="experience">
 				<TimelineSection />
 			</Section>
-			{/* <WaveBackground order={["top", "bottom"]} /> */}
-			{/* WAVE SEPARATOR HERE...*/}
+			<WaveBackground order={["top", "bottom"]} />
+			<Section title="contact me">
+				<ContactMeSection />
+			</Section>
 		</div>
 	);
 };

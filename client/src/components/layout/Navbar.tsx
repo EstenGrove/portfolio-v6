@@ -1,8 +1,9 @@
 import { useState } from "react";
-import sprite from "../../assets/icons/portfolio.svg";
+import sprite from "../../assets/icons/theme.svg";
 import styles from "../../css/layout/Navbar.module.scss";
 import { NavLink } from "react-router-dom";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import ThemeToggle from "../design/ThemeToggle";
 
 const isActive = ({ isActive }: { isActive: boolean }) => {
 	if (!isActive) return;
@@ -116,6 +117,58 @@ const MobileList = ({ openMenu }: MenuProps) => {
 	);
 };
 
+const Email = () => {
+	return (
+		<a
+			href="mailto:echo.alchemist.design@gmail.com"
+			target="_blank"
+			rel="noreferrer"
+			className={styles.Email}
+			title="Email me"
+		>
+			<svg className={styles.Email_icon}>
+				<use xlinkHref={`${sprite}#icon-alternate_email`}></use>
+			</svg>
+		</a>
+	);
+};
+
+const GitHub = () => {
+	return (
+		<a
+			href="https://github.com/EstenGrove"
+			rel="noreferrer"
+			target="_blank"
+			className={styles.GitHub}
+			title="Visit my GitHub"
+		>
+			<svg className={styles.GitHub_icon}>
+				<use xlinkHref={`${sprite}#icon-github`}></use>
+			</svg>
+		</a>
+	);
+};
+
+const Toggle = () => {
+	return (
+		<div className={styles.Toggle}>
+			<ThemeToggle />
+		</div>
+	);
+};
+
+const Island = () => {
+	return (
+		<aside className={styles.Island}>
+			<div className={styles.Island_inner}>
+				<Toggle />
+				<GitHub />
+				<Email />
+			</div>
+		</aside>
+	);
+};
+
 const Navbar = () => {
 	const winSize = useWindowSize();
 	const [showMobileOverlay, setShowMobileOverlay] = useState(false);
@@ -135,7 +188,10 @@ const Navbar = () => {
 				</NavLink>
 			</div>
 			{winSize.width >= 750 ? (
-				<DesktopList />
+				<>
+					<DesktopList />
+					<Island />
+				</>
 			) : (
 				<MobileList openMenu={openMenu} />
 			)}

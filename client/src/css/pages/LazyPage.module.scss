@@ -1,0 +1,17 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.LazyPage {
+	@include fill_container;
+}
+
+.Fallback {
+	@include fill_container;
+	@include colCenter();
+
+	&_label {
+		font-size: 1.8rem;
+		color: var(--accent);
+	}
+}

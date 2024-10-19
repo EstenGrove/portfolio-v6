@@ -3,15 +3,17 @@ import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import { AppProviders } from "./context/AppProviders";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import AboutPage from "./pages/AboutPage";
-import ProjectPage from "./pages/ProjectPage";
-import SnippetsPage from "./pages/SnippetsPage";
-import ContactPage from "./pages/ContactPage";
 import HomePage from "./pages/HomePage";
+import LazyPage from "./pages/LazyPage";
+import PageNotFound from "./pages/PageNotFound";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import ProjectsPage from "./pages/ProjectsPage";
-import PageNotFound from "./pages/PageNotFound";
+
+const LazySnippets = <LazyPage path="./SnippetsPage.tsx" />;
+const LazyAbout = <LazyPage path="./AboutPage.tsx" />;
+const LazyContact = <LazyPage path="./ContactPage.tsx" />;
+const LazyProject = <LazyPage path="./ProjectPage.tsx" />;
+const LazyProjects = <LazyPage path="./ProjectsPage.tsx" />;
 
 function App() {
 	return (
@@ -23,13 +25,12 @@ function App() {
 						<div className="App_main">
 							{/* BACK-BUTTON */}
 							<Routes>
-								{/* <Route index={true} element={<HomePage />} /> */}
 								<Route index element={<HomePage />} />
-								<Route path="about" element={<AboutPage />} />
-								<Route path="projects" element={<ProjectsPage />} />
-								<Route path="projects/:id" element={<ProjectPage />} />
-								<Route path="snippets" element={<SnippetsPage />} />
-								<Route path="contact" element={<ContactPage />} />
+								<Route path="about" element={LazyAbout} />
+								<Route path="contact" element={LazyContact} />
+								<Route path="snippets" element={LazySnippets} />
+								<Route path="projects" element={LazyProjects} />
+								<Route path="projects/:id" element={LazyProject} />
 								<Route path="*" element={<PageNotFound />} />
 							</Routes>
 							{/* SCROLL-TO-TOP */}

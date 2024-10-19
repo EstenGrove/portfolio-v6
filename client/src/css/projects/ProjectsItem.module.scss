@@ -201,3 +201,17 @@ $accent: var(--accent);
 		margin-bottom: -3rem;
 	}
 }
+
+@media only screen and (max-width: 750px) {
+	.IconLink {
+		margin-top: 0.5rem;
+		&_icon {
+			width: 2rem;
+			height: 2rem;
+			min-width: 2rem;
+			min-height: 2rem;
+			max-width: 2rem;
+			max-height: 2rem;
+		}
+	}
+}

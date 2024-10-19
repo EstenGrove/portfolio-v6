@@ -1,0 +1,9 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.ContactMeSection {
+	@include fill_container;
+	@include flex_row(center, center);
+	margin-bottom: 4rem;
+}

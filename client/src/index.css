@@ -203,6 +203,12 @@
 
 	--badgeBG: var(--accent-bg);
 
+	--bg-foreground-light: #eaecef;
+	--bg-foreground-dark: #0c0f13;
+	--bg-foreground: var(--bg-foreground-dark);
+
+	--text-faded: var(--blueGrey700);
+
 	/* GRADIENTS */
 	--darkGradient: radial-gradient(
 		farthest-corner circle at 50% 50% in oklab,
@@ -224,8 +230,10 @@
 
 :root[data-theme="light"] {
 	--bg-body: #eaecef;
+	--bg-foreground: var(--bg-foreground-light);
 	--text-main: var(--blueGrey800);
 	--text-secondary: rgb(100, 116, 139);
+	--text-faded: var(--blueGrey300);
 	--accent: rgb(105 25 255);
 	--accent-bg: rgba(105, 25, 255, 0.2);
 	--logo-color: rgb(100, 116, 139);
@@ -255,8 +263,10 @@
 }
 :root[data-theme="dark"] {
 	--bg-body: #0d1115;
+	--bg-foreground: var(--bg-foreground-dark);
 	--text-main: var(--blueGrey200);
 	--text-secondary: rgb(100, 116, 139);
+	--text-faded: var(--blueGrey700);
 	--accent: rgb(105 25 255);
 	--accent-bg: rgba(105, 25, 255, 0.2);
 	--logo-color: #ffffff;
