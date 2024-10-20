@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Build
+tsconfig.app.tsbuildinfo
+tsconfig.node.tsbuildinfo
+# Preview Configs
+tsconfig.app.json
+tsconfig.node.json

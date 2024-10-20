@@ -8,6 +8,7 @@ import LazyPage from "./pages/LazyPage";
 import PageNotFound from "./pages/PageNotFound";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import { ErrorBoundary } from "./components/errors/ErrorBoundary";
 
 const LazySnippets = <LazyPage path="./SnippetsPage.tsx" />;
 const LazyAbout = <LazyPage path="./AboutPage.tsx" />;
@@ -17,29 +18,32 @@ const LazyProjects = <LazyPage path="./ProjectsPage.tsx" />;
 
 function App() {
 	return (
-		<Router>
-			<Provider store={store}>
-				<div className="App">
-					<AppProviders>
-						<Navbar />
-						<div className="App_main">
-							{/* BACK-BUTTON */}
-							<Routes>
-								<Route index element={<HomePage />} />
-								<Route path="about" element={LazyAbout} />
-								<Route path="contact" element={LazyContact} />
-								<Route path="snippets" element={LazySnippets} />
-								<Route path="projects" element={LazyProjects} />
-								<Route path="projects/:id" element={LazyProject} />
-								<Route path="*" element={<PageNotFound />} />
-							</Routes>
-							{/* SCROLL-TO-TOP */}
-						</div>
-						<Footer />
-					</AppProviders>
-				</div>
-			</Provider>
-		</Router>
+		<ErrorBoundary>
+			{/* <ErrorBoundary fallback={(<ErrFallback />) as ReactElement}> */}
+			<Router>
+				<Provider store={store}>
+					<div className="App">
+						<AppProviders>
+							<Navbar />
+							<div className="App_main">
+								{/* BACK-BUTTON */}
+								<Routes>
+									<Route index element={<HomePage />} />
+									<Route path="about" element={LazyAbout} />
+									<Route path="contact" element={LazyContact} />
+									<Route path="snippets" element={LazySnippets} />
+									<Route path="projects" element={LazyProjects} />
+									<Route path="projects/:id" element={LazyProject} />
+									<Route path="*" element={<PageNotFound />} />
+								</Routes>
+								{/* SCROLL-TO-TOP */}
+							</div>
+							<Footer />
+						</AppProviders>
+					</div>
+				</Provider>
+			</Router>
+		</ErrorBoundary>
 	);
 }
 

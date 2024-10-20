@@ -7,16 +7,16 @@ import {
 } from "../features/projects/projectsSlice";
 import { fetchProjects } from "../features/projects/operations";
 // components
+import Wave from "../components/design/Wave";
 import Header from "../components/shared/Header";
 import MainHeader from "../components/home/MainHeader";
-import GradientBackground from "../components/design/GradientBackground";
 import Section from "../components/home/Section";
 import AboutSection from "../components/home/AboutSection";
 import TimelineSection from "../components/home/TimelineSection";
-import WaveBackground from "../components/design/WaveBackground";
 import ProjectsSection from "../components/home/ProjectsSection";
-import Wave from "../components/design/Wave";
 import ContactMeSection from "../components/home/ContactMeSection";
+import WaveBackground from "../components/design/WaveBackground";
+import GradientBackground from "../components/design/GradientBackground";
 
 const HomePage = () => {
 	const dispatch = useAppDispatch();
@@ -49,15 +49,15 @@ const HomePage = () => {
 			<Section key="about" title="about">
 				<AboutSection />
 			</Section>
-			<WaveBackground order={["top", "bottom"]} />
+			<WaveBackground key="about/projects" order={["top", "bottom"]} />
 			<Section key="projects" title="projects">
 				<ProjectsSection projects={projects} isLoading={isLoading} />
 			</Section>
-			<WaveBackground order={["top", "bottom"]} />
+			<WaveBackground key="projects/experience" order={["top", "bottom"]} />
 			<Section key="experience" title="experience">
 				<TimelineSection />
 			</Section>
-			<WaveBackground order={["top", "bottom"]} />
+			<WaveBackground key="experience/contact" order={["top", "bottom"]} />
 			<Section title="contact me">
 				<ContactMeSection />
 			</Section>

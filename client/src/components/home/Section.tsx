@@ -1,14 +1,18 @@
-import { ReactNode } from "react";
+import { ComponentPropsWithoutRef, ReactNode, RefObject } from "react";
 import styles from "../../css/home/Section.module.scss";
 
-type Props = {
+type SectionProps = {
 	title: string;
 	children?: ReactNode;
+	sectionRef?: RefObject<HTMLElement>;
 };
 
-const Section = ({ title, children }: Props) => {
+// @ts-expect-error: THIS IS FINE
+interface Props extends SectionProps, ComponentPropsWithoutRef<"section"> {}
+
+const Section = ({ title, children, sectionRef, ...rest }: Props) => {
 	return (
-		<section className={styles.Section}>
+		<section ref={sectionRef} className={styles.Section} {...rest}>
 			<h2 className={styles.Section_title}>
 				{title}
 				<b>.</b>

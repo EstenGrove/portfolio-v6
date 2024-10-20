@@ -17,18 +17,15 @@ type Props = {
 	isLoading: boolean;
 };
 const ProjectsSection = ({ projects, isLoading }: Props) => {
-	const sortedProjects = sortNumAscByKey("id", projects);
+	const sortedProjects = sortNumAscByKey<Project>("id", projects);
+
 	return (
 		<div className={styles.ProjectsSection}>
 			<h4 className={styles.ProjectsSection_subtitle}>
-				Here's a list of selected projects I've worked on:
+				Here's a list of selected projects I've built recently:
 			</h4>
 			<div className={styles.ProjectsSection_list}>
-				{isLoading ? (
-					<Loading />
-				) : (
-					<ProjectsList projects={sortedProjects as Project[]} />
-				)}
+				{isLoading ? <Loading /> : <ProjectsList projects={sortedProjects} />}
 			</div>
 		</div>
 	);

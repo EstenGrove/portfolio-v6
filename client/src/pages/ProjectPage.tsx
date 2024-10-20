@@ -44,6 +44,7 @@ const ProjectContent = ({
 	windowSize,
 	isLoading,
 }: ContentProps) => {
+	console.log("selectedProjectInfo", selectedProjectInfo);
 	if (isLoading) {
 		return <PageLayout>Loading...</PageLayout>;
 	}
