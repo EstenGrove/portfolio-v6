@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import styles from "../../css/home/Timeline.module.scss";
 
 type Props = {

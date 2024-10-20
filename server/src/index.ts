@@ -14,11 +14,11 @@ const app = new Hono();
 const port = 3000;
 
 const corsConfig = {
-	origin: ["http://localhost", "localhost", "http:192.168.0.48"],
+	origin: ["http://localhost", "localhost", "http://192.168.0.48"],
 	allowMethods: ["POST", "GET", "OPTIONS"],
 	maxAge: 36000,
 };
-app.use("*", cors(corsConfig));
+// app.use("*", cors(corsConfig));
 app.use("*", logger());
 // app.use("*", basicAuth(authConfig));
 

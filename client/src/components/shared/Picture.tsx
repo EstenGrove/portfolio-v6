@@ -1,3 +1,4 @@
+import { ComponentPropsWithoutRef, RefObject } from "react";
 import styles from "../../css/shared/Picture.module.scss";
 
 interface PictureSource {
@@ -6,14 +7,17 @@ interface PictureSource {
 	type?: HTMLSourceElement["type"];
 }
 
-type Props = {
+type PicProps = {
 	sourceList: PictureSource[];
 	fallbackSrc: string;
 	alt?: string;
 	width?: number | string;
 	height?: number | string;
+	imgRef?: RefObject<HTMLImageElement>;
 	[key: string]: unknown;
 };
+
+interface Props extends PicProps, ComponentPropsWithoutRef<"img"> {}
 
 const Picture = ({
 	sourceList,
@@ -21,6 +25,7 @@ const Picture = ({
 	alt,
 	width,
 	height,
+	imgRef,
 	...rest
 }: Props) => {
 	return (
@@ -34,6 +39,7 @@ const Picture = ({
 				alt={alt}
 				width={width}
 				height={height}
+				ref={imgRef}
 				className={styles.Picture_fallback}
 				{...rest}
 			/>
