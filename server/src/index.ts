@@ -30,6 +30,7 @@ app.use("*", logger());
 app.use("/assets/images/*", serveStatic());
 
 app.route("/api/v1", projectRoutes);
+
 app.get("/something/:imageName", async (ctx) => {
 	const imageName = ctx.req.param("imageName");
 	const ext = path.extname(imageName).replace(/\./, "");

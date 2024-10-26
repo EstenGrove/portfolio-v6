@@ -1,5 +1,5 @@
 import { Pool, QueryResult } from "pg";
-import { ProjectDB, ProjectInfoDB } from "./types";
+import { ProjectAndInfoDB, ProjectDB, ProjectInfoDB } from "./types";
 
 class ProjectsService {
 	#db: Pool;
@@ -7,10 +7,10 @@ class ProjectsService {
 		this.#db = db;
 	}
 
-	async getProjects(): Promise<ProjectDB[] | unknown> {
+	async getProjects(isActive: boolean = true): Promise<ProjectDB[] | unknown> {
 		try {
-			const query = `SELECT * FROM projects`;
-			const results = (await this.#db.query(query)) as QueryResult;
+			const query = `SELECT * FROM projects WHERE is_active = $1`;
+			const results = (await this.#db.query(query, [isActive])) as QueryResult;
 			const projects = results.rows as ProjectDB[];
 			return projects;
 		} catch (error) {
@@ -33,6 +33,18 @@ class ProjectsService {
 			const results = (await this.#db.query(query, [id])) as QueryResult;
 			const project = results?.rows?.[0] as ProjectInfoDB;
 			return project;
+		} catch (error) {
+			return error;
+		}
+	}
+	async getProjectAndInfoByID(id: number): Promise<ProjectAndInfoDB | unknown> {
+		try {
+			const project = (await this.getProjectByID(id)) as ProjectDB;
+			const info = (await this.getProjectInfoByID(id)) as ProjectInfoDB;
+			return {
+				project,
+				info,
+			};
 		} catch (error) {
 			return error;
 		}
