@@ -49,3 +49,12 @@ export interface ProjectInfoClient {
 	isActive: boolean;
 	createdDate: string;
 }
+
+export interface ProjectAndInfoDB {
+	project: ProjectDB;
+	info: ProjectInfoDB;
+}
+export interface ProjectAndInfoClient {
+	project: ProjectClient;
+	info: ProjectInfoClient;
+}
