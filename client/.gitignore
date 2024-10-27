@@ -24,6 +24,8 @@ dist-ssr
 *.sw?
 
 # Build
+tsconfig.node.*
+tsconfig.app.*
 tsconfig.app.tsbuildinfo
 tsconfig.node.tsbuildinfo
 # Preview Configs

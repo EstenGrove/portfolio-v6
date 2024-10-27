@@ -1,6 +1,5 @@
-@import "../../sass/variables";
-@import "../../sass/mixins";
-@import "../../sass/custom";
+@use "../../sass/mixins" as mixins;
+@use "../../sass/custom" as custom;
 
 $accent: var(--accent);
 $sizeCalc: calc(1.5vw + 1.5vh);
@@ -12,13 +11,13 @@ $sizeCalc: calc(1.5vw + 1.5vh);
 	& > a {
 		width: max-content;
 		height: calc(1.5vw + 2.2vh);
-		@include flex_row(flex-start, center);
+		@include custom.flex_row(flex-start, center);
 		gap: 0 0.3rem;
 		font-size: $sizeCalc;
 		font-weight: 600;
 		color: $accent;
 		text-decoration: none;
-		@include hoverEffect($accent, $accent);
+		@include mixins.hoverEffect($accent, $accent);
 	}
 	&_icon {
 		width: $sizeCalc;

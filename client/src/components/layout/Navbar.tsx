@@ -1,9 +1,12 @@
+import React from "react";
 import { useState } from "react";
 import sprite from "../../assets/icons/theme.svg";
 import styles from "../../css/layout/Navbar.module.scss";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import ThemeToggle from "../design/ThemeToggle";
+import Logo from "../shared/Logo";
+import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
 
 const isActive = ({ isActive }: { isActive: boolean }) => {
 	if (!isActive) return;
@@ -39,9 +42,37 @@ const MenuIcon = ({ openMenu }: MenuProps) => {
 };
 
 const MobileOverlay = ({ closeMenu }: OverlayProps) => {
+	useLockBodyScroll();
+
+	const githubItem = (
+		<a
+			href="https://github.com/EstenGrove"
+			rel="noreferrer"
+			target="_blank"
+			className={styles.GithubItem}
+		>
+			<svg className={styles.GithubItem_icon}>
+				<use xlinkHref={`${sprite}#icon-github`}></use>
+			</svg>
+		</a>
+	);
+	const emailItem = (
+		<a
+			href="mailto:echo.alchemist.design@gmail.com"
+			rel="noreferrer"
+			target="_blank"
+			className={styles.EmailItem}
+		>
+			<svg className={styles.EmailItem_icon}>
+				<use xlinkHref={`${sprite}#icon-alternate_email`}></use>
+			</svg>
+		</a>
+	);
+
 	return (
 		<aside className={styles.MobileOverlay}>
 			<div className={styles.MobileOverlay_top}>
+				<Logo />
 				<CloseIcon closeMenu={closeMenu} />
 			</div>
 			<ul className={styles.MobileOverlay_list}>
@@ -70,6 +101,13 @@ const MobileOverlay = ({ closeMenu }: OverlayProps) => {
 						contact<b>.</b>
 					</NavLink>
 				</li>
+			</ul>
+			<ul className={styles.MobileOverlay_socialBar}>
+				<li className={styles.MobileOverlay_socialBar_item}>
+					<ThemeToggle />
+				</li>
+				<li className={styles.MobileOverlay_socialBar_item}>{githubItem}</li>
+				<li className={styles.MobileOverlay_socialBar_item}>{emailItem}</li>
 			</ul>
 		</aside>
 	);

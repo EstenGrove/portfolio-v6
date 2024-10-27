@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.scss";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import { AppProviders } from "./context/AppProviders";
@@ -9,6 +10,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import { ErrorBoundary } from "./components/errors/ErrorBoundary";
+import ScrollToTop from "./components/layout/ScrollToTop";
 
 const LazySnippets = <LazyPage path="./SnippetsPage.tsx" />;
 const LazyAbout = <LazyPage path="./AboutPage.tsx" />;
@@ -19,7 +21,6 @@ const LazyProjects = <LazyPage path="./ProjectsPage.tsx" />;
 function App() {
 	return (
 		<ErrorBoundary>
-			{/* <ErrorBoundary fallback={(<ErrFallback />) as ReactElement}> */}
 			<Router>
 				<Provider store={store}>
 					<div className="App">
@@ -37,6 +38,7 @@ function App() {
 									<Route path="*" element={<PageNotFound />} />
 								</Routes>
 								{/* SCROLL-TO-TOP */}
+								<ScrollToTop />
 							</div>
 							<Footer />
 						</AppProviders>
