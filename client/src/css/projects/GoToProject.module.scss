@@ -1,6 +1,7 @@
-@import "../../sass/variables";
-@import "../../sass/mixins";
-@import "../../sass/custom";
+@use "../../sass/variables" as *;
+@use "../../sass/mixins" as mixins;
+@use "../../sass/custom" as custom;
+@use "../../sass/animations" as *;
 
 $accent: var(--accent);
 
@@ -11,14 +12,14 @@ $accent: var(--accent);
 	& > a {
 		width: max-content;
 		height: max-content;
-		@include flex_row(center, center);
+		@include custom.flex_row(center, center);
 		gap: 0 0.5rem;
 		font-size: 1.7rem;
 		font-weight: 600;
 		text-decoration: none;
 		color: var(--accent);
 		&:hover {
-			@include hoverEffect($accent, $accent);
+			@include mixins.hoverEffect($accent, $accent);
 		}
 	}
 

@@ -1,8 +1,8 @@
-@import "../../sass/variables";
-@import "../../sass/mixins";
-@import "../../sass/custom";
+@use "../../sass/variables" as *;
+@use "../../sass/mixins" as *;
+@use "../../sass/custom" as custom;
 
 .NoData {
-	@include fill_container;
-	@include colCenter();
+	@include custom.fill_container;
+	@include custom.colCenter();
 }
