@@ -2,6 +2,54 @@
 @use "../../sass/mixins" as *;
 @use "../../sass/custom" as *;
 
+$accent: var(--accent);
+
 .AboutPage {
-	@include fill_container;
+	width: 100%;
+	height: max-content;
+	min-height: auto;
+	display: block;
+	margin-bottom: 4rem;
+
+	&_content {
+		width: 100%;
+		color: var(--section-title);
+		&_para {
+			width: 100%;
+			// font-size: calc(1.3vw + 1vh);
+			// line-height: calc(2vw + 2vh);
+			font-size: 2.5rem;
+			font-weight: 600;
+			letter-spacing: 0.05rem;
+			margin-bottom: 2rem;
+		}
+	}
+}
+
+.ParaWithHighlight {
+	width: auto;
+	text-wrap: wrap;
+	word-break: normal;
+
+	& b {
+		font-style: normal;
+	}
+	& [data-text] {
+		color: $accent;
+		text-decoration: none;
+	}
+}
+
+@media only screen and (max-width: 650px) {
+	.AboutPage {
+		margin-top: -1rem;
+
+		&_content {
+			width: auto;
+			&_para {
+				font-size: calc(1.3vw + 1.5vh);
+				line-height: calc(normal + 1.8vh);
+			}
+		}
+	}
 }

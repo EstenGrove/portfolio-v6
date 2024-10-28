@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "../../css/layout/Footer.module.scss";
 
 const Copyright = () => {

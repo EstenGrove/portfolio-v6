@@ -1,4 +1,4 @@
-type AboutText = {
+export type AboutText = {
 	[key: string[number]]: {
 		text: string;
 		keywords: string[] | [];

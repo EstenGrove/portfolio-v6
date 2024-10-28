@@ -6,9 +6,10 @@ const getProjectSrcList = (sourceList: PictureSource[]) => {
 	if (!sourceList || !sourceList.length) return [];
 	return [...sourceList].map((entry: PictureSource) => {
 		const { srcSet } = entry;
+
 		return {
 			...entry,
-			srcSet: baseUrl + srcSet,
+			srcSet: new URL(srcSet, baseUrl).toString(),
 		};
 	});
 };

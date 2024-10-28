@@ -323,6 +323,56 @@ body {
 	}
 }
 
+/* SET MEDIA DEFAULTS */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+	/* text-wrap: pretty; */
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	/* text-wrap: balance; */
+}
+
+a {
+	color: inherit;
+	&:hover {
+		cursor: pointer;
+		color: var(--accent);
+	}
+}
+
 code {
 	padding: 0.2rem 0.4rem;
 	border-radius: 0.5rem;

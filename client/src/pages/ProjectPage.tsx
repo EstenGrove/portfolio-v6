@@ -21,6 +21,7 @@ import Page from "../components/layout/Page";
 import Divider from "../components/layout/Divider";
 import PageSection from "../components/layout/PageSection";
 import PageLayout from "../components/layout/PageLayout";
+import FloatingNav from "../components/layout/FloatingNav";
 
 // REQUIREMENTS:
 // - "about this project." section (eg a paragraph description)
@@ -44,7 +45,6 @@ const ProjectContent = ({
 	windowSize,
 	isLoading,
 }: ContentProps) => {
-	console.log("selectedProjectInfo", selectedProjectInfo);
 	if (isLoading) {
 		return <PageLayout>Loading...</PageLayout>;
 	}
@@ -105,6 +105,7 @@ const ProjectPage = () => {
 
 	return (
 		<Page>
+			<FloatingNav />
 			<div className={styles.ProjectPage}>
 				<ProjectContent
 					isLoading={isLoading}
