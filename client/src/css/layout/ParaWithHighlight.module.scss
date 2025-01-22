@@ -1,0 +1,26 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+$accent: var(--accent);
+
+.ParaWithHighlight {
+	width: auto;
+	text-wrap: wrap;
+	word-break: normal;
+
+	& b {
+		font-style: normal;
+	}
+	& [data-text] {
+		color: $accent;
+		text-decoration: none;
+	}
+}
+
+@media only screen and (max-width: 650px) {
+	.ParaWithHighlight {
+		font-size: calc(1.3vw + 1.5vh);
+		line-height: calc(normal + 1.8vh);
+	}
+}

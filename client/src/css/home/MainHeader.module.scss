@@ -4,6 +4,10 @@
 
 $accent: var(--accent);
 
+$hi: 7vmin; // 'Hi,'
+$name: 5vmin; // 'I'm Steven G.'
+$title: 6vmin; // 'Software Developer'
+
 .MainHeader {
 	@include fill_container;
 	min-height: 56vh;
@@ -67,6 +71,37 @@ $accent: var(--accent);
 			// font-size: calc(2.5vw + 3.5vh);
 			font-size: 3.5rem;
 			color: var(--header-title);
+		}
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.MainHeader {
+		--fontSize: 5rem;
+		&_intro {
+			font-size: calc(4vw + 4vh);
+			color: var(--header-hi);
+			& > b {
+				font-size: inherit;
+			}
+		}
+		&_name {
+			font-size: 2.2rem;
+			// font-size: calc(1.8vw + 1.8vh);
+			color: var(--header-name);
+			line-height: 2rem;
+
+			& b {
+				font-size: inherit;
+			}
+		}
+		&_title {
+			// font-size: calc(2.5vw + 2.5vh);
+			// font-size: 2.8rem;
+			// font-size: var(--fontSize);
+			font-size: 8vmin;
+			color: var(--header-title);
+			margin-bottom: 1rem;
 		}
 	}
 }

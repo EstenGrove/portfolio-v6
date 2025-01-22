@@ -33,13 +33,12 @@ type SectionProps = {
 };
 // renders out each sections paragraphs & provides proper spacing etc
 const Section = ({ name, section }: SectionProps) => {
-	const subSections = Object.keys(section);
+	console.log("section", section);
 
 	return (
 		<div className={styles.Section}>
-			<Subtitle>{name}</Subtitle>
-			{subSections &&
-				subSections.map((section, idx) => (
+			{section &&
+				section.map((section, idx) => (
 					<>
 						<ParaBlock key={`${name}-${idx}`}>{section}</ParaBlock>
 						<br />
@@ -50,6 +49,7 @@ const Section = ({ name, section }: SectionProps) => {
 };
 
 const ProjectInfo = ({ projectInfo }: Props) => {
+	console.log("projectInfo", projectInfo);
 	const { about, usecases, insights } = projectInfo;
 	const sections = { about, usecases, insights };
 	const sectionKeys = Object.keys(sections);

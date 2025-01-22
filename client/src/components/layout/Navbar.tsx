@@ -1,12 +1,14 @@
-import React from "react";
 import { useState } from "react";
 import sprite from "../../assets/icons/theme.svg";
 import styles from "../../css/layout/Navbar.module.scss";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import ThemeToggle from "../design/ThemeToggle";
 import Logo from "../shared/Logo";
 import { useLockBodyScroll } from "../../hooks/useLockBodyScroll";
+import { useSound } from "../../hooks/useSound";
+import bubblePop from "../../assets/audio/bubble-pop-1-EDITED.mp3";
+// import toggle from "../../assets/audio/";
 
 const isActive = ({ isActive }: { isActive: boolean }) => {
 	if (!isActive) return;
@@ -32,8 +34,13 @@ const CloseIcon = ({ closeMenu }: CloseProps) => {
 };
 
 const MenuIcon = ({ openMenu }: MenuProps) => {
+	const { play } = useSound({ src: bubblePop, initialVolume: 0.7 });
+	const handleMenu = () => {
+		openMenu();
+		play();
+	};
 	return (
-		<div className={styles.MenuIcon} onClick={openMenu}>
+		<div className={styles.MenuIcon} onClick={handleMenu}>
 			<div className={styles.MenuIcon_line}></div>
 			<div className={styles.MenuIcon_line}></div>
 			<div className={styles.MenuIcon_line}></div>

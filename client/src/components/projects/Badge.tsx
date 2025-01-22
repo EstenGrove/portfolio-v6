@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import css from "../../css/projects/Badge.module.scss";
+import React from "react";
 
 type Size = "XSM" | "SM" | "MD" | "LG" | "XLG";
 

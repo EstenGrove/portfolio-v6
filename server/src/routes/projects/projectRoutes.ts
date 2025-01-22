@@ -9,7 +9,7 @@ import {
 	normalizeProjectInfo,
 	normalizeProjects,
 } from "../../utils/utils_data";
-import { getResponseOk } from "../../utils/utils_http";
+import { getResponseError, getResponseOk } from "../../utils/utils_http";
 
 const app: Hono = new Hono();
 
@@ -27,9 +27,18 @@ app.get("/projects", async (ctx: Context) => {
 
 app.get("/projects/:projectID", async (ctx: Context) => {
 	const projectID = ctx.req.param("projectID");
+	console.log("projectID", projectID);
 	const infoDB = (await projectsService.getProjectInfoByID(
 		Number(projectID)
 	)) as ProjectInfoDB;
+
+	if (infoDB instanceof Error) {
+		const errResp = getResponseError(infoDB, {
+			Info: {},
+		});
+		return ctx.json(errResp);
+	}
+
 	const projectInfo = normalizeProjectInfo(infoDB) as ProjectInfoClient;
 
 	console.log("projectInfo", projectInfo);

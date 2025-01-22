@@ -22,7 +22,7 @@ $size: calc(1.8vw + 3vh);
 		& > b {
 			color: var(--accent);
 			font-size: calc($size + 2rem);
-			@include bounce();
+			// @include bounce();
 		}
 	}
 }

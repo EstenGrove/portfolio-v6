@@ -26,3 +26,8 @@ $maxPageWidth: min(100%, var(--pageWidth));
 		padding: $topPadding $basePadding;
 	}
 }
+@media only screen and (max-width: 750px) {
+	.ProjectPage {
+		padding: $topPadding 1rem;
+	}
+}

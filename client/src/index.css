@@ -13,6 +13,7 @@
 	--font-primary: "Raleway", "Roboto", sans-serif;
 	--font-secondary: "Open Sans", "Roboto", sans-serif;
 	--font-logo: "Rubik Glitch", system-ui;
+	--font-alt: "Space Grotesk", "Lato", "Roboto", sans-serif;
 
 	/* FONT-SIZES & SCALES */
 	--font-scale: 1;
@@ -320,6 +321,56 @@ body {
 	::selection {
 		background-color: rgba(0, 226, 189, 1);
 		color: #fff;
+	}
+}
+
+/* SET MEDIA DEFAULTS */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+	/* text-wrap: pretty; */
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	/* text-wrap: balance; */
+}
+
+a {
+	color: inherit;
+	&:hover {
+		cursor: pointer;
+		color: var(--accent);
 	}
 }
 
