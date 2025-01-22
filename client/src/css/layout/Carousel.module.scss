@@ -1,0 +1,10 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
+
+.Carousel {
+	@include fill_container;
+}
+.MainDisplay {
+	@include fill_container;
+}

@@ -29,6 +29,7 @@ const normalizeProjects = (projects: ProjectDB[]): ProjectClient[] => {
 const normalizeProjectInfo = (
 	projectInfo: ProjectInfoDB
 ): ProjectInfoClient => {
+	console.log("projectInfo", projectInfo);
 	const client: ProjectInfoClient = {
 		pid: projectInfo.pid,
 		projectID: projectInfo.project_id,

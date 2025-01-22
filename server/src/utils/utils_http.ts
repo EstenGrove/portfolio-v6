@@ -19,5 +19,21 @@ const getResponseOk = <T extends object>(data: T): IApiDefault<T> => {
 		ErrorStack: null,
 	};
 };
+const getResponseError = <T extends object>(
+	err: Error,
+	data: T = {} as T
+): IApiDefault<T> => {
+	const results: number = Object?.keys(data)?.length || 0;
 
-export { getResponseOk };
+	return {
+		Status: "FAILED",
+		Data: {
+			...data,
+		},
+		Results: results,
+		ErrorMsg: err.message,
+		ErrorStack: err.stack,
+	};
+};
+
+export { getResponseOk, getResponseError };

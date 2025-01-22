@@ -22,6 +22,7 @@ import Divider from "../components/layout/Divider";
 import PageSection from "../components/layout/PageSection";
 import PageLayout from "../components/layout/PageLayout";
 import FloatingNav from "../components/layout/FloatingNav";
+import ProjectInfoContent from "../components/projects/ProjectInfo";
 
 // REQUIREMENTS:
 // - "about this project." section (eg a paragraph description)
@@ -62,8 +63,9 @@ const ProjectContent = ({
 			<Divider styles={{ margin: "10rem 0 5rem 0" }} />
 
 			<PageSection title="project info">
-				{/*  */}
-				{/*  */}
+				{selectedProjectInfo && (
+					<ProjectInfoContent projectInfo={selectedProjectInfo} />
+				)}
 			</PageSection>
 		</PageLayout>
 	);
@@ -102,6 +104,9 @@ const ProjectPage = () => {
 			isMounted = false;
 		};
 	}, [dispatch, projectID, projects, selectedProject]);
+
+	console.log("selectedProject", selectedProject);
+	console.log("projectInfo", projectInfo);
 
 	return (
 		<Page>

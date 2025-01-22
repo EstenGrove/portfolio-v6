@@ -11,7 +11,7 @@ import { createReadStream } from "fs";
 import { Readable } from "stream";
 
 const app = new Hono();
-const port = 3000;
+const port = Number(process.env.PORT || 5000);
 
 const corsConfig = {
 	origin: [
@@ -26,7 +26,8 @@ const corsConfig = {
 	allowMethods: ["POST", "GET", "OPTIONS"],
 	maxAge: 36000,
 };
-app.use("*", cors(corsConfig));
+// app.use("*", cors(corsConfig));
+app.use("*", cors());
 app.use("*", logger());
 // app.use("*", basicAuth(authConfig));
 
@@ -34,7 +35,7 @@ app.use("*", logger());
 // - DEFINE ROUTES
 // - DEFINE STATIC FILE SERVER FOR IMAGES & OTHER FILES
 // app
-
+// Anytime a request to 'assets/images' is received we assume it's for static content
 app.use("/assets/images/*", serveStatic());
 
 app.route("/api/v1", projectRoutes);
@@ -66,4 +67,5 @@ console.log(`✅ Server is running on port ${port}`);
 serve({
 	fetch: app.fetch,
 	port,
+	hostname: "192.168.0.48",
 });
