@@ -17,27 +17,31 @@ import ProjectsSection from "../components/home/ProjectsSection";
 import ContactMeSection from "../components/home/ContactMeSection";
 import WaveBackground from "../components/design/WaveBackground";
 import GradientBackground from "../components/design/GradientBackground";
+import { useGetProjectsQuery } from "../features/projects/projectsApi";
+import { Project } from "../features/projects/types";
+import { fetchWithAuth } from "../utils/utils_http";
+
+const getImage = async (name: string = "PROJECT-Converty.webp") => {
+	const url = "http://172.21.66.16:4000/assets/images/" + name;
+
+	try {
+		const request = (await fetchWithAuth(url)) as Response;
+		const response = await request.text();
+		console.log("request", request);
+		console.log("response", response);
+		return response;
+	} catch (error) {
+		console.log("error", error);
+		return error;
+	}
+};
+
+// getImage();
 
 const HomePage = () => {
-	const dispatch = useAppDispatch();
-	const projects = useAppSelector(selectProjects);
-	const isLoading = useAppSelector(selectIsLoadingProjects);
-
-	// fetch projects, if not already hydrated
-	useEffect(() => {
-		let isMounted = true;
-		if (!isMounted) {
-			return;
-		}
-
-		if (!projects || projects?.length < 1) {
-			dispatch(fetchProjects());
-		}
-
-		return () => {
-			isMounted = false;
-		};
-	}, [dispatch, projects]);
+	const { data, isLoading } = useGetProjectsQuery();
+	const projects = data as Project[];
+	console.log("data", data);
 
 	return (
 		<div className={styles.HomePage}>

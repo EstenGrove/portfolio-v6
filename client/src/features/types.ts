@@ -1,13 +1,29 @@
 export type TStatus = "IDLE" | "PENDING" | "FULFILLED" | "REJECTED";
-export type TResponseStatus = "SUCCESS" | "FAILED";
 
-export type IResponseData<T> = T;
+export type TResponseStatus = "SUCCESS" | "FAIL";
+export type TResponse<T> = {
+	Status: TStatus;
+	Data: T | Record<string, string>;
+	Message: string;
+	ErrorMsg: string | null;
+	StackTrace: string | null;
+};
 
-export interface IResponse<T> {
-	Status: TResponseStatus;
-	Data: IResponseData<T>;
-	Message?: string | null;
-	Results?: string | number;
-	ErrorMessage?: string | null;
-	ErrorStack?: string | null;
+export enum ETStatus {
+	IDLE = "IDLE",
+	PENDING = "PENDING",
+	FULFILLED = "FULFILLED",
+	REJECTED = "REJECTED",
+}
+
+// Example: AsyncResponse<{ user: CurrentUser; session: CurrentSession }>
+// - Designed to be used within an async function definition, NOT the consumer
+export type AsyncResponse<T> = Promise<TResponse<T> | unknown>;
+// Example: AwaitedResponse<{ user: CurrentUser; session: CurrentSession }>
+// - Designed to be used within an async function consumer (eg when awaiting a response)
+export type AwaitedResponse<T> = TResponse<T>;
+
+export interface DateRange {
+	startDate: Date | string;
+	endDate: Date | string;
 }

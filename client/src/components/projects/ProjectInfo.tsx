@@ -25,16 +25,14 @@ const Subtitle = ({ children }: SubtitleProps) => {
 type SectionProps = {
 	name: SectionName;
 	section: string[];
-	// projectSection?: {
-	// 	about: string[];
-	// 	usecases: string[];
-	// 	insights: string[];
-	// };
+	projectSection?: {
+		about: string[];
+		usecases: string[];
+		insights: string[];
+	};
 };
 // renders out each sections paragraphs & provides proper spacing etc
 const Section = ({ name, section }: SectionProps) => {
-	console.log("section", section);
-
 	return (
 		<div className={styles.Section}>
 			{section &&

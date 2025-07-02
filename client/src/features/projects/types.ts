@@ -20,11 +20,16 @@ export interface Project {
 	fallbackImgSrc: string;
 }
 
-export interface ProjectInfo extends Project {
+export interface ProjectInfo {
 	about: string[];
 	usecases: string[];
 	insights: string[];
 	createdDate: string;
 	updatedDate: string | null;
 	isActive: true;
+}
+
+export interface ProjectDetails {
+	project: Project;
+	info: ProjectInfo;
 }
