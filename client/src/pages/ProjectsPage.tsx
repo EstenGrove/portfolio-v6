@@ -7,6 +7,12 @@ const ProjectsPage = () => {
 		<Page>
 			<div className={styles.ProjectsPage}>
 				<Title title="projects" />
+
+				<div className={styles.ProjectsPage_list}>
+					{/*  */}
+					{/*  */}
+					{/*  */}
+				</div>
 			</div>
 		</Page>
 	);

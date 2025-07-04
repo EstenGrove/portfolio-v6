@@ -25,37 +25,24 @@ const ORIGIN = {
 };
 
 const origin = ORIGIN.prefix + CLIENT.host + ":" + CLIENT.port;
+const altOrigin = ORIGIN.prefix + "localhost" + ":" + CLIENT.port;
 
 // origin: "http://172.21.66.16:5178",
 const corsConfig = {
-	origin,
+	origin: [origin, altOrigin],
 	credentials: true,
 };
 // Absolute path to /server/assets
-// const assetsPath = path.resolve("./assets/images");
-const assetsPath = path.resolve("./assets/images");
-
-console.log("assetsPath", assetsPath);
+// const assetsPath = path.resolve(__dirname, "../assets/images");
 
 app.use(logger());
 app.use(cors(corsConfig));
-app.use("/assets/images/*", async (ctx: Context, next: Next) => {
-	// const res = await serveStatic({ path: assetsPath })(ctx, next);
-	const res = await serveStatic({ path: assetsPath })(ctx, next);
-	console.log("res", res);
-	console.log("Img Request: ", ctx.req.path);
-	if (res && res.ok) {
-		res.headers.set("Access-Control-Allow-Origin", origin); // or specific origin
-		res.headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
-		res.headers.set("Access-Control-Allow-Headers", "Content-Type");
-	}
 
-	return res;
-});
+// app.use("/assets/images/*", serveStatic({ path: assetsPath }));
 
 app.route("projects", projectRoutes);
 
-app.get("/something/:imageName", async (ctx) => {
+app.get("assets/images/:imageName", async (ctx) => {
 	const imageName = ctx.req.param("imageName");
 	const ext = path.extname(imageName).replace(/\./, "");
 	const filepath = path.join("./assets/images", imageName);

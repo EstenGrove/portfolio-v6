@@ -41,7 +41,8 @@ const useSound = ({ src, initialVolume = 0.25 }: TSoundProps) => {
 		return () => {
 			isMounted = false;
 		};
-	}, [initialVolume]);
+		// }, [initialVolume]);
+	}, []);
 
 	return {
 		audioRef,

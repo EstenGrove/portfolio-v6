@@ -1,11 +1,6 @@
 import styles from "../css/pages/HomePage.module.scss";
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../store/store";
-import {
-	selectIsLoadingProjects,
-	selectProjects,
-} from "../features/projects/projectsSlice";
-import { fetchProjects } from "../features/projects/operations";
+import { Project } from "../features/projects/types";
+import { useGetProjectsQuery } from "../features/projects/projectsApi";
 // components
 import Wave from "../components/design/Wave";
 import Header from "../components/shared/Header";
@@ -17,31 +12,20 @@ import ProjectsSection from "../components/home/ProjectsSection";
 import ContactMeSection from "../components/home/ContactMeSection";
 import WaveBackground from "../components/design/WaveBackground";
 import GradientBackground from "../components/design/GradientBackground";
-import { useGetProjectsQuery } from "../features/projects/projectsApi";
-import { Project } from "../features/projects/types";
-import { fetchWithAuth } from "../utils/utils_http";
 
-const getImage = async (name: string = "PROJECT-Converty.webp") => {
-	const url = "http://172.21.66.16:4000/assets/images/" + name;
+const getProjectsPreviewList = (projects: Project[], showCount: number = 5) => {
+	if (!projects || !projects.length) return [];
+	if (projects.length <= showCount) return projects;
 
-	try {
-		const request = (await fetchWithAuth(url)) as Response;
-		const response = await request.text();
-		console.log("request", request);
-		console.log("response", response);
-		return response;
-	} catch (error) {
-		console.log("error", error);
-		return error;
-	}
+	return projects.slice(0, showCount);
 };
 
-// getImage();
+const showXProjects = 5;
 
 const HomePage = () => {
 	const { data, isLoading } = useGetProjectsQuery();
-	const projects = data as Project[];
-	console.log("data", data);
+	const allProjects = data as Project[];
+	const projects = getProjectsPreviewList(allProjects, showXProjects);
 
 	return (
 		<div className={styles.HomePage}>

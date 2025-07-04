@@ -27,7 +27,6 @@ const API_AUTH = {
 	local: {
 		assets: import.meta.env.VITE_APP_ASSETS_URL,
 		base: import.meta.env.VITE_API_BASE,
-		// base: "http://localhost:3004/api/v1",
 		user: import.meta.env.VITE_API_USER,
 		password: import.meta.env.VITE_API_PASSWORD,
 	},

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styles from "../../css/home/MainHeader.module.scss";
+import Modal from "../shared/Modal";
+import ResumeModal from "../shared/ResumeModal";
 // import resume from '../../assets/docs/Resume.pdf';
 
 type ButtonProps = {
@@ -19,6 +21,9 @@ const MainHeader = () => {
 	const openResumeModal = () => {
 		setViewResume(true);
 	};
+	const closeResumeModal = () => {
+		setViewResume(false);
+	};
 
 	return (
 		<div className={styles.MainHeader}>
@@ -31,7 +36,13 @@ const MainHeader = () => {
 			<h2 className={styles.MainHeader_title}>Software Developer</h2>
 			<ResumeButton viewResume={openResumeModal} />
 
-			{viewResume && <div>Resume goes here...</div>}
+			{viewResume && (
+				<ResumeModal onClose={closeResumeModal}>
+					<div>
+						<h2>Resume goes here...</h2>
+					</div>
+				</ResumeModal>
+			)}
 		</div>
 	);
 };

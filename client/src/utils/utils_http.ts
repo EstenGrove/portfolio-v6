@@ -16,7 +16,7 @@ const fetchWithAuth = <T extends any>(
 ): AsyncResponse<T> => {
 	return fetch(url, {
 		...(options as RequestInit),
-		// credentials: "include",
+		credentials: "include",
 	});
 };
 
