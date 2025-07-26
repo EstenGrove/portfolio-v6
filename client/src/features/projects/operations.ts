@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { currentEnv, projects } from "../../utils/utils_env";
 import { fetchWithAuth } from "../../utils/utils_http";
-import { IResponse } from "../types";
-import { Project, ProjectInfo } from "./types";
+import { Project, ProjectDetails, ProjectInfo } from "./types";
+import { AsyncResponse, AwaitedResponse } from "../types";
 
-type ProjectsResp = IResponse<{ Projects: Project[] }>;
-type ProjectInfoResp = IResponse<{ Info: ProjectInfo }>;
+type ProjectsResp = AsyncResponse<{ projects: Project[] }>;
+type ProjectDetailsResp = AsyncResponse<{ details: ProjectDetails }>;
 
 const fetchProjectsList = async (): Promise<Project[] | unknown> => {
 	const url = currentEnv.base + projects.getAllProjects;
@@ -14,20 +14,21 @@ const fetchProjectsList = async (): Promise<Project[] | unknown> => {
 		const request = (await fetchWithAuth(url)) as Response;
 		const response = (await request.json()) as ProjectsResp;
 
-		return response.Data.Projects;
+		return response;
 	} catch (error) {
 		return error;
 	}
 };
 
-const fetchProjectDetails = async (projectID: number) => {
+const fetchProjectDetails = async (projectID: number): ProjectDetailsResp => {
 	let url = currentEnv.base + projects.getProjectInfo;
 	url += "/" + projectID;
 
 	try {
 		const request = (await fetchWithAuth(url)) as Response;
-		const response = (await request.json()) as ProjectInfoResp;
-		return response.Data.Info;
+		const response = (await request.json()) as AwaitedResponse<ProjectDetails>;
+
+		return response;
 	} catch (error) {
 		return error;
 	}

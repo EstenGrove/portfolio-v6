@@ -9,12 +9,12 @@ type TPara = {
 // Accepts list of words & generates a regex for each of the keywords & generates the markup for the highlights using '<b data-text="keyword">keyword</b>
 const ParaWithHighlight = ({ text, highlights }: TPara) => {
 	return (
-		<span
+		<p
 			className={styles.ParaWithHighlight}
 			dangerouslySetInnerHTML={{
 				__html: renderTextWithHighlights(text, highlights),
 			}}
-		></span>
+		></p>
 	);
 };
 export default ParaWithHighlight;

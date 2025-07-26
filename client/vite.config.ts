@@ -19,4 +19,8 @@ export default defineConfig({
 		outDir: "./dist",
 		emptyOutDir: true,
 	},
+	server: {
+		host: true,
+		port: 5178,
+	},
 });

@@ -3,6 +3,7 @@ import styles from "../../css/projects/ProjectInfo.module.scss";
 import type { ProjectInfo } from "../../features/projects/types";
 import ParaBlock from "../shared/ParaBlock";
 import Divider from "../layout/Divider";
+import ParaWithHighlight from "../layout/ParaWithHighlight";
 
 type SectionName = "about" | "usecases" | "insights";
 
@@ -25,22 +26,25 @@ const Subtitle = ({ children }: SubtitleProps) => {
 type SectionProps = {
 	name: SectionName;
 	section: string[];
-	// projectSection?: {
-	// 	about: string[];
-	// 	usecases: string[];
-	// 	insights: string[];
-	// };
+	projectSection?: {
+		about: string[];
+		usecases: string[];
+		insights: string[];
+	};
 };
 // renders out each sections paragraphs & provides proper spacing etc
 const Section = ({ name, section }: SectionProps) => {
-	console.log("section", section);
-
 	return (
 		<div className={styles.Section}>
 			{section &&
 				section.map((section, idx) => (
 					<>
-						<ParaBlock key={`${name}-${idx}`}>{section}</ParaBlock>
+						{/* <ParaBlock key={`${name}-${idx}`}>{section}</ParaBlock> */}
+						<ParaWithHighlight
+							key={`${name}-${idx}`}
+							text={section}
+							highlights={[name]}
+						/>
 						<br />
 					</>
 				))}
@@ -49,7 +53,6 @@ const Section = ({ name, section }: SectionProps) => {
 };
 
 const ProjectInfo = ({ projectInfo }: Props) => {
-	console.log("projectInfo", projectInfo);
 	const { about, usecases, insights } = projectInfo;
 	const sections = { about, usecases, insights };
 	const sectionKeys = Object.keys(sections);

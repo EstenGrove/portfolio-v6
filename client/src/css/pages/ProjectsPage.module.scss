@@ -4,4 +4,11 @@
 
 .ProjectsPage {
 	@include fill_container;
+
+	&_list {
+		width: 100%;
+		max-width: 80rem;
+		display: block;
+		margin: 0 auto;
+	}
 }

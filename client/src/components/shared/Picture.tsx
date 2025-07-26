@@ -41,6 +41,7 @@ const Picture = ({
 				height={height}
 				ref={imgRef}
 				className={styles.Picture_fallback}
+				// crossOrigin="use-credentials"
 				{...rest}
 			/>
 		</picture>

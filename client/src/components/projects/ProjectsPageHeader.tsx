@@ -32,6 +32,7 @@ const ProjectsPageHeader = ({ project, windowSize }: Props) => {
 					alt={project?.alt}
 					sourceList={sourceList}
 					fallbackSrc={project?.fallbackImgSrc}
+					style={{ borderRadius: "1rem" }}
 				/>
 			</div>
 		</header>

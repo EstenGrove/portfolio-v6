@@ -51,9 +51,11 @@ const useIntersectionObserver = (
 
 	const handleIntersection = useCallback(
 		(entries: IntersectionObserverEntry[]) => {
-			entries.forEach((entry) => {
-				const isInRange =
-					entry?.isIntersecting && entry?.intersectionRatio >= threshold;
+			entries.forEach((entry: IntersectionObserverEntry) => {
+				const intersect = entry?.isIntersecting || false;
+				const ratio = entry?.intersectionRatio as number;
+				const pastThreshold = ratio >= (threshold as number);
+				const isInRange = intersect && pastThreshold;
 
 				if (isInRange) {
 					setEntryState({

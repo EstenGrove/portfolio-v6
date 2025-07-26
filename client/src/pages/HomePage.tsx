@@ -1,11 +1,6 @@
 import styles from "../css/pages/HomePage.module.scss";
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../store/store";
-import {
-	selectIsLoadingProjects,
-	selectProjects,
-} from "../features/projects/projectsSlice";
-import { fetchProjects } from "../features/projects/operations";
+import { Project } from "../features/projects/types";
+import { useGetProjectsQuery } from "../features/projects/projectsApi";
 // components
 import Wave from "../components/design/Wave";
 import Header from "../components/shared/Header";
@@ -18,26 +13,19 @@ import ContactMeSection from "../components/home/ContactMeSection";
 import WaveBackground from "../components/design/WaveBackground";
 import GradientBackground from "../components/design/GradientBackground";
 
+const getProjectsPreviewList = (projects: Project[], showCount: number = 5) => {
+	if (!projects || !projects.length) return [];
+	if (projects.length <= showCount) return projects;
+
+	return projects.slice(0, showCount);
+};
+
+const showXProjects = 5;
+
 const HomePage = () => {
-	const dispatch = useAppDispatch();
-	const projects = useAppSelector(selectProjects);
-	const isLoading = useAppSelector(selectIsLoadingProjects);
-
-	// fetch projects, if not already hydrated
-	useEffect(() => {
-		let isMounted = true;
-		if (!isMounted) {
-			return;
-		}
-
-		if (!projects || projects?.length < 1) {
-			dispatch(fetchProjects());
-		}
-
-		return () => {
-			isMounted = false;
-		};
-	}, [dispatch, projects]);
+	const { data, isLoading } = useGetProjectsQuery();
+	const allProjects = data as Project[];
+	const projects = getProjectsPreviewList(allProjects, showXProjects);
 
 	return (
 		<div className={styles.HomePage}>

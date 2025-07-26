@@ -1,6 +1,10 @@
-@use "../../sass/variables" as *;
-@use "../../sass/mixins" as *;
-@use "../../sass/custom" as *;
+// @use "../../sass/variables" as *;
+// @use "../../sass/mixins" as *;
+// @use "../../sass/custom" as *;
+
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
 
 .ProjectsList {
 	width: 100%;
@@ -25,6 +29,23 @@
 		// 	border-radius: 5rem;
 		// 	background-color: var(--border);
 		// }
+	}
+	&_viewMore {
+		width: 100%;
+		@include flex_row(flex-end, center);
+
+		&_link {
+			width: max-content;
+			height: max-content;
+			align-self: flex-end;
+			margin-top: 0.3rem;
+			font-size: 2rem;
+			font-weight: 700;
+			color: $accent;
+			&:hover {
+				cursor: pointer;
+			}
+		}
 	}
 }
 

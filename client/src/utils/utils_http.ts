@@ -1,39 +1,35 @@
-import { currentEnv } from "./utils_env";
+import { AsyncResponse } from "../features/types";
 
-const defaultOpts = {
+export interface FetchOptions {
+	method?: "GET" | "POST" | "PUT" | "DELETE";
+	headers?: HeadersInit;
+	body?: string;
+}
+
+const defaultOpts: FetchOptions = {
 	method: "GET",
-	headers: {
-		Authorization: "Basic " + btoa(currentEnv.user + ":" + currentEnv.password),
-	},
 };
 
-// ##TODOS:
-// - Fix CORs errors
-// - Un-comment 'headers' & 'mode' when site is deployed/live
-const fetchWithAuth = (url: string, options: RequestInit = defaultOpts) => {
-	const {
-		method = "GET",
-		// headers = defaultOpts.headers,
-		signal = AbortSignal.timeout(10000),
-	} = options;
+const fetchWithAuth = <T extends any>(
+	url: string,
+	options: FetchOptions = defaultOpts
+): AsyncResponse<T> => {
+	return fetch(url, {
+		...(options as RequestInit),
+		credentials: "include",
+	});
+};
 
-	try {
-		return fetch(url, {
-			...options,
-			method,
-			signal,
-			// mode: "same-origin",
-			headers: {
-				// ...headers,
-			},
-		});
-	} catch (error) {
-		return error;
-	}
+const sleep = (ms: number = 650) => {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve(ms);
+		}, ms);
+	});
 };
 
 const fetchImage = async (imageName: string) => {
-	const url = "http://localhost:3000" + "/something/" + imageName;
+	const url = "http://localhost:3004" + "/something/" + imageName;
 
 	try {
 		const req = await fetch(url);
@@ -44,4 +40,4 @@ const fetchImage = async (imageName: string) => {
 	}
 };
 
-export { fetchWithAuth, fetchImage };
+export { fetchWithAuth, fetchImage, sleep };

@@ -10,42 +10,39 @@ import {
 	normalizeProjects,
 } from "../../utils/utils_data";
 import { getResponseError, getResponseOk } from "../../utils/utils_http";
+import { getProjectDetails } from "../../modules/projects/getProjectDetails";
 
 const app: Hono = new Hono();
 
-app.get("/projects", async (ctx: Context) => {
+// /projects
+app.get("/", async (ctx: Context) => {
 	const dbProjects = (await projectsService.getProjects()) as ProjectDB[];
 	// convert to client format
 	const projects = normalizeProjects(dbProjects);
 
 	const resp = getResponseOk({
-		Projects: projects,
+		projects: projects,
 	});
 
 	return ctx.json(resp);
 });
 
-app.get("/projects/:projectID", async (ctx: Context) => {
-	const projectID = ctx.req.param("projectID");
-	console.log("projectID", projectID);
-	const infoDB = (await projectsService.getProjectInfoByID(
-		Number(projectID)
-	)) as ProjectInfoDB;
+// /projects/:id
+app.get("/:projectID", async (ctx: Context) => {
+	const id = ctx.req.param("projectID");
+	const projectID = Number(id);
 
-	if (infoDB instanceof Error) {
-		const errResp = getResponseError(infoDB, {
-			Info: {},
+	const details = await getProjectDetails(projectID);
+
+	if (details instanceof Error) {
+		const errResp = getResponseError(details, {
+			project: null,
+			info: null,
 		});
 		return ctx.json(errResp);
 	}
 
-	const projectInfo = normalizeProjectInfo(infoDB) as ProjectInfoClient;
-
-	console.log("projectInfo", projectInfo);
-
-	const resp = getResponseOk({
-		Info: projectInfo,
-	});
+	const resp = getResponseOk(details);
 
 	return ctx.json(resp);
 });

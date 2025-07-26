@@ -3,11 +3,14 @@
 @import "../../sass/custom";
 
 $accent: var(--accent);
+$fontSize: 2rem;
 
 .ParaWithHighlight {
 	width: auto;
 	text-wrap: wrap;
 	word-break: normal;
+	font-size: $fontSize;
+	color: var(--text-secondary);
 
 	& b {
 		font-style: normal;

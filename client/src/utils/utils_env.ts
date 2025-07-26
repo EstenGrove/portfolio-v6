@@ -25,8 +25,8 @@ const API_AUTH = {
 		password: import.meta.env.VITE_API_PASSWORD,
 	},
 	local: {
-		assets: import.meta.env.VITE_TEST_ASSETS_URL,
-		base: import.meta.env.VITE_TEST_API_BASE,
+		assets: import.meta.env.VITE_APP_ASSETS_URL,
+		base: import.meta.env.VITE_API_BASE,
 		user: import.meta.env.VITE_API_USER,
 		password: import.meta.env.VITE_API_PASSWORD,
 	},

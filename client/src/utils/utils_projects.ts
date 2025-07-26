@@ -7,7 +7,10 @@ const getProjectSrcList = (sourceList: PictureSource[]) => {
 	if (!sourceList || !sourceList.length) return [];
 	return [...sourceList].map((entry: PictureSource) => {
 		const { srcSet } = entry;
-		const src = new URL(srcSet, baseUrl).toString();
+		// We want to remove the '/assets/' prefix in the srcSet value to prevent it being set as the base path...
+		// ...which would remove the '/api/v1' real path
+		const cleanSrcSet = srcSet.replace(/^\/+/, "");
+		const src = new URL(cleanSrcSet, baseUrl).toString();
 
 		return {
 			...entry,
