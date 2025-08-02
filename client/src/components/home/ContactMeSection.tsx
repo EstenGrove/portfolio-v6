@@ -1,6 +1,7 @@
 import { useState, ChangeEvent } from "react";
 import styles from "../../css/home/ContactMeSection.module.scss";
 import ContactMeForm from "../contactme/ContactMeForm";
+import { sleep } from "../../utils/utils_http";
 
 interface FormValues {
 	firstName: string;
@@ -30,7 +31,7 @@ const ContactMeSection = () => {
 
 	const handleSubmit = async () => {
 		// do stuff
-
+		await sleep(800);
 		// when finished...reset states
 		setIsSubmitting(false);
 		setFormValues(initialState);

@@ -19,7 +19,6 @@ const ProjectsPage = () => {
 	const { data, isLoading } = useAllProjects();
 	const sortedProjects = sortNumAscByKey<Project>("id", data);
 
-	console.log("data", data);
 	return (
 		<Page>
 			<div className={styles.ProjectsPage}>

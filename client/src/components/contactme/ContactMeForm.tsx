@@ -28,7 +28,9 @@ const FormRow = ({ children }: RowProps) => {
 const enableSubmit = (values: FormValues) => {
 	const entries = Object.entries(values);
 
-	return entries.every(([, val]) => {
+	return entries.every(([key, val]) => {
+		// 'message' field is optional
+		if (key === "message") return true;
 		return !!val && val !== "";
 	});
 };

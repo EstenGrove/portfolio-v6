@@ -7,6 +7,16 @@ const SnippetsPage = () => {
 		<Page>
 			<div className={styles.SnippetsPage}>
 				<Title title="snippets" />
+				<div
+					className={styles.SnippetsPage_title}
+					style={{
+						margin: "10rem auto",
+						fontSize: "2rem",
+						textAlign: "center",
+					}}
+				>
+					<h2>Coming Soon!</h2>
+				</div>
 				{/*  */}
 				{/*  */}
 			</div>

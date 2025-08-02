@@ -2,11 +2,11 @@ import path from "path";
 import dotenv from "dotenv";
 dotenv.config();
 import { serve } from "@hono/node-server";
-import { Context, Hono, Next } from "hono";
+import { Context, Hono } from "hono";
 import { logger } from "hono/logger";
 import { cors } from "hono/cors";
-import { serveStatic } from "@hono/node-server/serve-static";
-import { createReadStream } from "fs";
+// import { serveStatic } from "@hono/node-server/serve-static";
+import { createReadStream, ReadStream } from "fs";
 import { Readable } from "stream";
 import projectRoutes from "./routes/projects/projectRoutes";
 
@@ -46,7 +46,7 @@ app.get("assets/images/:imageName", async (ctx) => {
 	const imageName = ctx.req.param("imageName");
 	const ext = path.extname(imageName).replace(/\./, "");
 	const filepath = path.join("./assets/images", imageName);
-	const readable = createReadStream(filepath);
+	const readable: ReadStream = createReadStream(filepath);
 	const webStream = Readable.toWeb(readable) as ReadableStream;
 
 	const headers = new Headers();
@@ -58,6 +58,7 @@ app.get("assets/images/:imageName", async (ctx) => {
 		headers: headers,
 	});
 });
+// Test API
 app.get("test", async (ctx: Context) => {
 	return ctx.text("Hello");
 });
