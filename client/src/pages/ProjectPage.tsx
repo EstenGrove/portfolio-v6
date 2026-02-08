@@ -78,7 +78,6 @@ const ProjectPage = () => {
 	const details = data as ProjectDetails;
 	const project = details?.project;
 	const info = details?.info;
-	console.log("data", data);
 
 	return (
 		<Page>

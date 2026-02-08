@@ -1,7 +1,15 @@
-@use "../../sass/variables" as *;
-@use "../../sass/mixins" as *;
-@use "../../sass/custom" as *;
+// @use "../../sass/variables" as *;
+// @use "../../sass/mixins" as *;
+// @use "../../sass/custom" as *;
+
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/custom";
 
 .SnippetsPage {
 	@include fill_container;
+
+	& h2 {
+		color: var(--blueGrey300);
+	}
 }

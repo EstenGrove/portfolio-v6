@@ -13,7 +13,7 @@ const AboutPage = () => {
 					<Title title="about me" />
 					<div className={styles.AboutPage_content}>
 						{Object.keys(aboutPage).map((key, idx) => (
-							<p
+							<div
 								key={`${key}-${idx}`}
 								className={styles.AboutPage_content_para}
 							>
@@ -22,7 +22,7 @@ const AboutPage = () => {
 									text={aboutPage[key].text}
 									highlights={aboutPage[key].keywords}
 								/>
-							</p>
+							</div>
 						))}
 					</div>
 				</div>

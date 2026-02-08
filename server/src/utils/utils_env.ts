@@ -11,4 +11,6 @@ const API_USER: IApiUser = {
 	password: process.env.API_USER_PWD as string,
 };
 
-export { API_USER };
+const CURRENT_ENV_NAME = 'local';
+
+export { API_USER, CURRENT_ENV_NAME as currentEnvName };

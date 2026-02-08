@@ -31,8 +31,23 @@ const enableSubmit = (values: FormValues) => {
 	return entries.every(([key, val]) => {
 		// 'message' field is optional
 		if (key === "message") return true;
+		// Check that 'email' field has an '@' sign
+		if (key === "email") return !!val && val.includes("@");
 		return !!val && val !== "";
 	});
+};
+
+const HoneyPot = () => {
+	return (
+		<>
+			<input
+				type="text"
+				name="honeyPot"
+				id="honeyPot"
+				style={{ display: "none" }}
+			/>
+		</>
+	);
 };
 
 const ContactMeForm = ({
@@ -90,6 +105,7 @@ const ContactMeForm = ({
 						placeholder="Hi, really like your site..."
 						style={{ height: "15rem" }}
 					/>
+					<HoneyPot />
 				</div>
 			</FormRow>
 			<FormRow>
