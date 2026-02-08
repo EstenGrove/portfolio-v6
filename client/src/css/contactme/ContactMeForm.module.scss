@@ -11,7 +11,7 @@
 	padding: 2rem 4rem;
 	border-radius: 1rem;
 	border: 1px solid var(--border);
-	background-color: var(--bg-body);
+	background-color: var(--bg-contact-form);
 
 	&_field {
 		width: 100%;
@@ -26,6 +26,13 @@
 		font-size: 1.6rem;
 		border: none;
 		outline: none;
+
+		&:focus-within {
+			cursor: pointer;
+			-webkit-box-shadow: 2px 2px 14px 5px rgba(124, 58, 237, 0.3);
+			box-shadow: 2px 2px 14px 5px rgba(124, 58, 237, 0.3);
+		}
+
 		&:hover {
 			cursor: pointer;
 		}

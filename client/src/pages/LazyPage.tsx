@@ -17,12 +17,12 @@ type Props = {
 };
 
 const LazyPage = ({ path }: Props) => {
-	const Component = lazy(() => import(path));
+	const PageComponent = lazy(() => import(path));
 
 	return (
 		<>
 			<Suspense fallback={<Fallback />}>
-				<Component />
+				<PageComponent />
 			</Suspense>
 		</>
 	);

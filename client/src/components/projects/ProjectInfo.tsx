@@ -38,15 +38,14 @@ const Section = ({ name, section }: SectionProps) => {
 		<div className={styles.Section}>
 			{section &&
 				section.map((section, idx) => (
-					<>
-						{/* <ParaBlock key={`${name}-${idx}`}>{section}</ParaBlock> */}
+					<div key={`-${idx}`}>
 						<ParaWithHighlight
 							key={`${name}-${idx}`}
 							text={section}
 							highlights={[name]}
 						/>
 						<br />
-					</>
+					</div>
 				))}
 		</div>
 	);
@@ -60,14 +59,14 @@ const ProjectInfo = ({ projectInfo }: Props) => {
 		<div className={styles.ProjectInfo}>
 			{sectionKeys &&
 				sectionKeys.map((name, idx) => (
-					<>
+					<div key={name + idx}>
 						<Section
 							key={`${idx}-${name}`}
 							name={name as SectionName}
 							section={sections?.[name as keyof object]}
 						/>
 						<Divider style={{ margin: "var(--projectInfoSpacing) 0" }} />
-					</>
+					</div>
 				))}
 		</div>
 	);

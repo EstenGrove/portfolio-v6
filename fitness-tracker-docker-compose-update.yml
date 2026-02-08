@@ -1,0 +1,42 @@
+# Updated docker-compose.yml for FitnessTracker
+# Location: ~/Documents/Projects/Apps/fitness-tracker-v2/docker-compose.yml
+# 
+# Changes: Changed port bindings from 80:80/443:443 to 8081:80/8444:443
+#          to avoid conflicts with host-level nginx
+
+version: "3.9"
+
+services:
+  client:
+    build: ./client
+    env_file:
+      - .env.production
+    ports:
+      - "8081:80"   # Changed from 80:80 - host nginx will route app.sgore.dev here
+      - "8444:443"  # Changed from 443:443 - host nginx will route app.sgore.dev here
+    depends_on:
+      - server
+    volumes:
+      - /etc/letsencrypt/live/app.sgore.dev/fullchain.pem:/etc/ssl/certs/app.sgore.dev.crt:ro
+      - /etc/letsencrypt/live/app.sgore.dev/privkey.pem:/etc/ssl/private/app.sgore.dev.key:ro
+    restart: always
+
+  server:
+    build: ./server
+    env_file:
+      - .env.production
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    build: ./db
+    restart: always
+    env_file:
+      - .env.production
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+

@@ -1,12 +1,30 @@
 services:
+  nginx:
+    image: nginx:alpine
+    container_name: portfolio_nginx
+    restart: unless-stopped
+    # IMPORTANT: Using non-standard ports to avoid conflict with FitnessTracker app
+    # FitnessTracker binds to 80:80 and 443:443, so we use 8080 and 8443
+    # Host-level nginx should route sgore.dev -> portfolio_nginx:8080
+    ports:
+      - "8080:80"   # Internal nginx port 80 -> host port 8080
+      - "8443:443"  # Internal nginx port 443 -> host port 8443
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/ssl:/etc/letsencrypt:ro
+      - certbot_data:/var/www/certbot:ro
+    networks:
+      - web
+    depends_on:
+      - frontend
+      - backend
+
   frontend:
     build:
       context: ./client
       dockerfile: Dockerfile
     container_name: portfolio_frontend
     restart: unless-stopped
-    ports:
-      - "8080:80"
     networks:
       - web
     depends_on:
@@ -16,12 +34,11 @@ services:
     build: ./server
     container_name: portfolio_backend
     restart: unless-stopped
-    ports:
-      - "3002:3002"
     env_file:
       - .env
     environment:
       - DATABASE_URL=postgres://x-main-user:t_(1U>*XS?Ivsm^9bfLW@db:5432/Portfolio-v6
+      - API_PORT=3002
     networks:
       - web
     depends_on:
@@ -44,6 +61,7 @@ services:
 
 volumes:
   postgres_data:
+  certbot_data:
 
 networks:
   web:

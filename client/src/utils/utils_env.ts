@@ -46,8 +46,11 @@ const API_ENDPOINTS = {
 	snippets: {
 		getAllSnippets: "/getSnippets",
 	},
+	contact: {
+		submit: "/contactMe",
+	},
 };
-const { analytics, projects, snippets } = API_ENDPOINTS;
+const { analytics, projects, snippets, contact } = API_ENDPOINTS;
 
 // ##TODO:
 // - Un-comment the following line before deploying
@@ -68,4 +71,5 @@ export {
 	analytics,
 	projects,
 	snippets,
+	contact,
 };

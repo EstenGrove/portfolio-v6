@@ -1,6 +1,6 @@
-import React from "react";
 import "./App.scss";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import { ErrorBoundary } from "./components/errors/ErrorBoundary";
 import { AppProviders } from "./context/AppProviders";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
@@ -9,7 +9,6 @@ import LazyPage from "./pages/LazyPage";
 import PageNotFound from "./pages/PageNotFound";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import { ErrorBoundary } from "./components/errors/ErrorBoundary";
 import ScrollToTop from "./components/layout/ScrollToTop";
 
 const LazySnippets = <LazyPage path="./SnippetsPage.tsx" />;

@@ -37,6 +37,7 @@
 	/* Theme/Color Variables */
 	--bg-body: rgb(234, 236, 239);
 	--main-accent: rgb(124, 58, 237);
+	/* --main-accent: #7c3aed; */
 	--alt-accent: rgb(0, 226, 189);
 	--accent-bright-red: rgb(255, 0, 102);
 
@@ -202,6 +203,8 @@
 	--border: var(--blueGrey600);
 	--bg-overlay: #ffffff;
 
+	--bg-contact-form: var(--blueGrey300);
+
 	--badgeBG: var(--accent-bg);
 
 	--bg-foreground-light: #eaecef;
@@ -262,6 +265,8 @@
 	--badgeBG: var(--accent-bg);
 
 	--projectSubtitleColor: var(--blueGrey500);
+
+	--bg-contact-form: var(--blueGrey300);
 }
 :root[data-theme="dark"] {
 	--bg-body: #0d1115;
@@ -295,6 +300,8 @@
 	/* BADGES BACKGROUND COLOR */
 	--badgeBG: var(--blueGrey900);
 	--projectSubtitleColor: var(--blueGrey700);
+
+	--bg-contact-form: var(--bg-foreground-dark);
 }
 
 *,
